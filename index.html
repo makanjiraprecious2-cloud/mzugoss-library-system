@@ -928,8 +928,10 @@ Cancel
  PASSWORDS
 ========================================================= */
 
-const SYSTEM_PASSWORD="Mzugoss@1";
-const ADMIN_PASSWORD="GREENCITY@2008";
+const SYSTEM_PASSWORD = "Mzugoss@1";
+const LIBRARIAN_PASSWORD = "MZUGOSS @1";
+const ADMIN_PASSWORD = "GREENCITY@2008";
+
 
 /* =========================================================
  DATA
@@ -1005,19 +1007,31 @@ function logout(){
 /* =========================================================
  DASHBOARDS
 ========================================================= */
-
 function openLibrarian(){
 
- hideAllPanels();
+    const password = prompt("🔐 Enter Librarian Password:");
 
- document.getElementById("librarianSystem").style.display="block";
+    if(password === null){
+        return;
+    }
 
- updateStats();
- displayBooks();
- updateStudentSuggestions();
- displayMessages();
- displayRequests();
+    if(password !== LIBRARIAN_PASSWORD){
+        alert("❌ Incorrect librarian password.");
+        return;
+    }
+
+    hideAllPanels();
+
+    document.getElementById("librarianSystem").style.display = "block";
+
+    updateStats();
+    displayBooks();
+    updateStudentSuggestions();
+    displayMessages();
+    displayRequests();
+
 }
+
 
 function openStudentPanel(){
 
