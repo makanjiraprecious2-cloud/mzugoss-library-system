@@ -7,12 +7,7 @@
 
 <style>
 *{box-sizing:border-box}
-html,body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#eaf2f8;
- color:#222
-}
+html,body{margin:0;font-family:Arial,sans-serif;background:#eaf2f8;color:#222}
 button,input,select{font-family:inherit}
 button{cursor:pointer}
 
@@ -27,983 +22,332 @@ button{cursor:pointer}
  --shadow:0 5px 20px rgba(0,0,0,.18)
 }
 
-/* =========================================================
- LOGIN
-========================================================= */
-
+/* LOGIN */
 #loginScreen{
- position:fixed;
- inset:0;
- z-index:99999;
- display:flex;
- align-items:center;
- justify-content:center;
- padding:20px;
- overflow:hidden;
- background:var(--blue)
+ position:fixed;inset:0;z-index:99999;
+ display:flex;align-items:center;justify-content:center;
+ padding:20px;overflow:hidden;background:var(--blue)
 }
-
-.login-background{
- position:absolute;
- inset:0
-}
-
+.login-background{position:absolute;inset:0}
 .login-background:after{
- content:"";
- position:absolute;
- inset:0;
+ content:"";position:absolute;inset:0;
  background:rgba(5,30,55,.7)
 }
-
-.background-track{
- display:flex;
- width:300%;
- height:100%;
- animation:slides 18s infinite
-}
-
-.background-track img{
- width:33.333%;
- height:100%;
- object-fit:cover
-}
-
+.background-track{display:flex;width:300%;height:100%;animation:slides 18s infinite}
+.background-track img{width:33.333%;height:100%;object-fit:cover}
 @keyframes slides{
  0%,27%{transform:translateX(0)}
  33%,60%{transform:translateX(-33.333%)}
  66%,93%{transform:translateX(-66.666%)}
  100%{transform:translateX(0)}
 }
-
 .welcome-text{
- position:absolute;
- top:35px;
- left:20px;
- right:20px;
- z-index:5;
- text-align:center;
- color:#fff;
- text-shadow:0 3px 10px #000
+ position:absolute;top:35px;left:20px;right:20px;z-index:5;
+ text-align:center;color:#fff;text-shadow:0 3px 10px #000
 }
-
-.welcome-text h1{
- font-size:34px;
- margin:0
-}
-
+.welcome-text h1{font-size:34px;margin:0}
 .login-box{
- position:relative;
- z-index:10;
- background:#fff;
- width:100%;
- max-width:430px;
- padding:32px;
- border-radius:20px;
- text-align:center;
- box-shadow:0 15px 50px rgba(0,0,0,.45)
+ position:relative;z-index:10;background:#fff;width:100%;
+ max-width:430px;padding:32px;border-radius:20px;
+ text-align:center;box-shadow:0 15px 50px rgba(0,0,0,.45)
 }
-
-.login-logo{
- width:115px;
- height:115px;
- object-fit:contain
+.login-logo{width:115px;height:115px;object-fit:contain}
+.login-box h1{color:var(--blue);margin:8px}
+.login-box input,.form input,.form select,.borrow-form input,
+.borrow-form select,.admin-form input,.admin-form select,
+.modal-box input,.student-login-box input{
+ width:100%;padding:13px;margin:7px 0 14px;
+ border:1px solid #ccc;border-radius:7px;font-size:15px
 }
-
-.login-box h1{
- color:var(--blue);
- margin:8px
+.login-box button,.form button{
+ width:100%;padding:13px;background:var(--lightblue);
+ color:#fff;border:0;border-radius:7px;font-weight:bold
 }
+.error{color:var(--red);font-weight:bold;min-height:20px}
 
-.login-box input,
-.form input,
-.form select,
-.borrow-form input,
-.borrow-form select,
-.admin-form input,
-.admin-form select,
-.modal-box input,
-.student-login-box input{
- width:100%;
- padding:13px;
- margin:7px 0 14px;
- border:1px solid #ccc;
- border-radius:7px;
- font-size:15px
-}
-
-.login-box button,
-.form button{
- width:100%;
- padding:13px;
- background:var(--lightblue);
- color:#fff;
- border:0;
- border-radius:7px;
- font-weight:bold
-}
-
-.error{
- color:var(--red);
- font-weight:bold;
- min-height:20px
-}
-
-/* =========================================================
- GENERAL
-========================================================= */
-
-#mainSystem{
- display:none;
- min-height:100vh
-}
-
-.page{
- display:none;
- width:92%;
- max-width:1250px;
- margin:30px auto
-}
-
-.page.active{
- display:block
-}
-
-.panel{
- background:#fff;
- padding:25px;
- border-radius:12px;
- box-shadow:var(--shadow)
-}
-
-h1,h2,h3{
- color:var(--blue)
-}
-
+/* GENERAL */
+#mainSystem{display:none;min-height:100vh}
+.page{display:none;width:92%;max-width:1250px;margin:30px auto}
+.page.active{display:block}
+.panel{background:#fff;padding:25px;border-radius:12px;box-shadow:var(--shadow)}
+h1,h2,h3{color:var(--blue)}
 .message{
- position:fixed;
- right:20px;
- bottom:20px;
- z-index:1000000;
- background:var(--green);
- color:#fff;
- padding:15px 22px;
- border-radius:8px;
- display:none;
- box-shadow:var(--shadow)
+ position:fixed;right:20px;bottom:20px;z-index:1000000;
+ background:var(--green);color:#fff;padding:15px 22px;
+ border-radius:8px;display:none;box-shadow:var(--shadow)
 }
 
-/* =========================================================
- DASHBOARD
-========================================================= */
-
+/* DASHBOARD */
 #dashboardSelector{
- min-height:100vh;
- padding:40px 20px;
- background:var(--blue)
+ min-height:100vh;padding:40px 20px;background:var(--blue)
 }
-
-.dashboard-header{
- text-align:center;
- color:#fff;
- margin-bottom:40px
-}
-
+.dashboard-header{text-align:center;color:#fff;margin-bottom:40px}
 .dashboard-header img{
- width:100px;
- height:100px;
- background:#fff;
- border-radius:50%;
- padding:5px
+ width:100px;height:100px;background:#fff;border-radius:50%;padding:5px
 }
-
-.dashboard-header h1{
- color:#fff;
- font-size:35px;
- margin:15px 0 5px
-}
-
-.dashboard-header p{
- color:#d9eaff
-}
-
+.dashboard-header h1{color:#fff;font-size:35px;margin:15px 0 5px}
+.dashboard-header p{color:#d9eaff}
 .dashboard-grid{
- max-width:1100px;
- margin:auto;
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:25px
+ max-width:1100px;margin:auto;
+ display:grid;grid-template-columns:repeat(3,1fr);gap:25px
 }
-
 .dashboard-card{
- background:#fff;
- border-radius:18px;
- padding:32px 25px;
- text-align:center;
- box-shadow:0 10px 30px rgba(0,0,0,.3);
- transition:.2s
+ background:#fff;border-radius:18px;padding:32px 25px;
+ text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.3)
 }
-
-.dashboard-card:hover{
- transform:translateY(-5px)
-}
-
-.dashboard-card .icon{
- font-size:55px
-}
-
-.dashboard-card h2{
- color:var(--blue)
-}
-
-.dashboard-card p{
- color:#666;
- min-height:45px
-}
-
+.dashboard-card:hover{transform:translateY(-5px)}
+.dashboard-card .icon{font-size:55px}
+.dashboard-card h2{color:var(--blue)}
+.dashboard-card p{color:#666;min-height:45px}
 .dashboard-card button{
- width:100%;
- padding:13px;
- color:#fff;
- border:0;
- border-radius:7px;
- font-weight:bold;
- margin-top:10px
+ width:100%;padding:13px;color:#fff;border:0;border-radius:7px;
+ font-weight:bold;margin-top:10px
 }
-
 .librarian-btn{background:var(--lightblue)}
 .student-btn{background:var(--green)}
 .admin-btn{background:var(--purple)}
-
 .dashboard-logout{
- display:block;
- margin:35px auto;
- padding:12px 30px;
- background:var(--red);
- color:#fff;
- border:0;
- border-radius:7px;
- font-weight:bold
+ display:block;margin:35px auto;padding:12px 30px;
+ background:var(--red);color:#fff;border:0;border-radius:7px;font-weight:bold
 }
 
-/* =========================================================
- NAVIGATION
-========================================================= */
-
+/* NAV */
 nav{
- background:var(--blue);
- color:#fff;
- padding:10px 4%;
- display:flex;
- justify-content:space-between;
- align-items:center;
- flex-wrap:wrap;
- position:sticky;
- top:0;
- z-index:1000
+ background:var(--blue);color:#fff;padding:10px 4%;
+ display:flex;justify-content:space-between;align-items:center;
+ flex-wrap:wrap;position:sticky;top:0;z-index:1000
 }
-
-.brand{
- display:flex;
- align-items:center;
- gap:10px
-}
-
-.logo{
- width:55px;
- height:55px;
- object-fit:contain;
- background:#fff;
- border-radius:50%
-}
-
-.logo-text{
- font-weight:bold;
- font-size:20px
-}
-
-.logo-subtitle{
- font-size:12px;
- color:#d9eaff
-}
-
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:55px;height:55px;object-fit:contain;background:#fff;border-radius:50%}
+.logo-text{font-weight:bold;font-size:20px}
+.logo-subtitle{font-size:12px;color:#d9eaff}
 nav button{
- background:transparent;
- color:#fff;
- border:0;
- padding:10px 11px;
- border-radius:6px
+ background:transparent;color:#fff;border:0;padding:10px 11px;border-radius:6px
 }
+nav button:hover{background:var(--lightblue)}
 
-nav button:hover{
- background:var(--lightblue)
-}
-
-/* =========================================================
- HERO
-========================================================= */
-
+/* HERO */
 .hero{
- background:var(--blue);
- color:#fff;
- text-align:center;
- padding:60px 20px;
- border-radius:15px;
- box-shadow:var(--shadow)
+ background:var(--blue);color:#fff;text-align:center;padding:60px 20px;
+ border-radius:15px;box-shadow:var(--shadow)
 }
-
-.hero h1{
- color:#fff;
- font-size:40px
-}
-
+.hero h1{color:#fff;font-size:40px}
 .main-button{
- background:#fff;
- color:var(--blue);
- border:0;
- padding:12px 25px;
- border-radius:7px;
- font-weight:bold
+ background:#fff;color:var(--blue);border:0;padding:12px 25px;
+ border-radius:7px;font-weight:bold
 }
 
-/* =========================================================
- STATS
-========================================================= */
-
-.stats,
-.admin-stat-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:20px;
- margin-top:25px
+/* STATS */
+.stats,.admin-stat-grid{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:25px
 }
-
-.stat,
-.admin-stat{
- background:#fff;
- padding:22px;
- text-align:center;
- border-radius:12px;
+.stat,.admin-stat{
+ background:#fff;padding:22px;text-align:center;border-radius:12px;
  box-shadow:var(--shadow)
 }
+.stat h2,.admin-stat h2{font-size:34px;color:var(--lightblue);margin:5px}
 
-.stat h2,
-.admin-stat h2{
- font-size:34px;
- color:var(--lightblue);
- margin:5px
-}
-
-/* =========================================================
- SEARCH
-========================================================= */
-
-.search-box{
- display:flex;
- gap:10px;
- margin:20px 0
-}
-
+/* SEARCH */
+.search-box{display:flex;gap:10px;margin:20px 0}
 .search-box input{
- flex:1;
- padding:13px;
- border:1px solid #ccc;
- border-radius:7px
+ flex:1;padding:13px;border:1px solid #ccc;border-radius:7px
 }
-
 .search-box button{
- background:var(--lightblue);
- color:#fff;
- border:0;
- padding:13px 20px;
- border-radius:7px
+ background:var(--lightblue);color:#fff;border:0;padding:13px 20px;border-radius:7px
 }
 
-/* =========================================================
- BOOKS
-========================================================= */
-
-.books{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:20px
-}
-
+/* BOOKS */
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .book{
- background:#fff;
- padding:22px;
- border-radius:12px;
- box-shadow:var(--shadow)
+ background:#fff;padding:22px;border-radius:12px;box-shadow:var(--shadow)
 }
-
-.book h3{
- margin-top:0
+.book h3{margin-top:0}
+.book button,.small-btn{
+ color:#fff;border:0;padding:9px 13px;border-radius:6px;margin:3px
 }
-
-.book button,
-.small-btn{
- color:#fff;
- border:0;
- padding:9px 13px;
- border-radius:6px;
- margin:3px
-}
-
 .borrow-book-btn{background:var(--lightblue)}
-.delete-book-btn,
-.delete-btn{background:var(--red)}
+.delete-book-btn,.delete-btn{background:var(--red)}
 .request-btn{background:var(--green)}
+button:disabled{background:#aaa!important;cursor:not-allowed}
 
-button:disabled{
- background:#aaa!important;
- cursor:not-allowed
+/* FORMS */
+.form,.borrow-form,.student-login-box,.admin-form{
+ max-width:700px;margin:30px auto;background:#fff;padding:30px;
+ border-radius:12px;box-shadow:var(--shadow)
 }
+.form label,.borrow-form label,.admin-form label{display:block;font-weight:bold;margin-top:8px}
 
-/* =========================================================
- FORMS
-========================================================= */
-
-.form,
-.borrow-form,
-.student-login-box,
-.admin-form{
- max-width:700px;
- margin:30px auto;
- background:#fff;
- padding:30px;
- border-radius:12px;
- box-shadow:var(--shadow)
-}
-
-.form label,
-.borrow-form label,
-.admin-form label{
- display:block;
- font-weight:bold;
- margin-top:8px
-}
-
-.scanner-box{
- background:#f0f8ff;
- border:2px dashed var(--lightblue);
- padding:15px;
- border-radius:10px;
- margin:10px 0 20px
-}
-
-.scanner-box strong{
- color:var(--blue)
-}
-
-.scanner-input{
- border:2px solid var(--lightblue)!important;
- background:#fff
-}
-
-.scan-status{
- min-height:22px;
- font-size:13px;
- font-weight:bold;
- margin-top:-5px;
- margin-bottom:8px
-}
-
-.scan-success{
- color:var(--green)
-}
-
-.scan-error{
- color:var(--red)
-}
-
-.scan-info{
- color:var(--lightblue)
-}
-
-/* =========================================================
- CLASS
-========================================================= */
-
+/* CLASS */
 .class-dashboard{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:20px;
- margin-top:25px
+ display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:25px
 }
-
 .class-card{
- background:#fff;
- padding:28px 20px;
- text-align:center;
- border-radius:15px;
- box-shadow:var(--shadow);
- border-top:6px solid var(--lightblue);
- cursor:pointer
+ background:#fff;padding:28px 20px;text-align:center;border-radius:15px;
+ box-shadow:var(--shadow);border-top:6px solid var(--lightblue);cursor:pointer
 }
-
-.class-card:hover{
- transform:translateY(-4px)
-}
-
-.class-icon{
- font-size:42px
-}
-
+.class-card:hover{transform:translateY(-4px)}
+.class-icon{font-size:42px}
 .student-count{
- display:inline-block;
- background:var(--lightblue);
- color:#fff;
- padding:6px 12px;
- border-radius:20px
+ display:inline-block;background:var(--lightblue);color:#fff;
+ padding:6px 12px;border-radius:20px
 }
-
-.class-student-view{
- display:none
-}
-
+.class-student-view{display:none}
 .back-btn{
- background:var(--blue);
- color:#fff;
- border:0;
- padding:10px 17px;
- border-radius:7px
+ background:var(--blue);color:#fff;border:0;padding:10px 17px;border-radius:7px
 }
 
-/* =========================================================
- TABLE
-========================================================= */
-
-.table-container{
- overflow-x:auto
-}
-
+/* TABLE */
+.table-container{overflow-x:auto}
 table{
- width:100%;
- border-collapse:collapse;
- background:#fff;
- margin-top:20px;
+ width:100%;border-collapse:collapse;background:#fff;margin-top:20px;
  box-shadow:var(--shadow)
 }
-
-th,td{
- padding:12px;
- border-bottom:1px solid #ddd;
- text-align:left
-}
-
-th{
- background:var(--blue);
- color:#fff
-}
-
-.return-btn{
- background:var(--green);
- color:#fff;
- border:0;
- padding:8px 12px;
- border-radius:5px
-}
-
-.overdue-row{
- background:#ffe5e5!important
-}
-
+th,td{padding:12px;border-bottom:1px solid #ddd;text-align:left}
+th{background:var(--blue);color:#fff}
+.return-btn{background:var(--green);color:#fff;border:0;padding:8px 12px;border-radius:5px}
+.overdue-row{background:#ffe5e5!important}
 .overdue-badge{
- display:inline-block;
- background:var(--red);
- color:#fff;
- padding:5px 8px;
- border-radius:5px;
- font-size:12px;
- font-weight:bold
+ display:inline-block;background:var(--red);color:#fff;
+ padding:5px 8px;border-radius:5px;font-size:12px;font-weight:bold
 }
 
-/* =========================================================
- STUDENT
-========================================================= */
-
-#studentPanel{
- display:none;
- min-height:100vh
-}
-
+/* STUDENT */
+#studentPanel{display:none;min-height:100vh}
 .student-panel-header{
- background:var(--green);
- color:#fff;
- text-align:center;
- padding:45px 20px
+ background:var(--green);color:#fff;text-align:center;padding:45px 20px
 }
-
-.student-panel-header h1{
- color:#fff
-}
-
+.student-panel-header h1{color:#fff}
 .student-login-box button{
- width:100%;
- padding:13px;
- background:var(--green);
- color:#fff;
- border:0;
- border-radius:7px;
- font-weight:bold
+ width:100%;padding:13px;background:var(--green);
+ color:#fff;border:0;border-radius:7px;font-weight:bold
 }
-
 .student-profile{
- background:#fff;
- padding:25px;
- border-radius:15px;
- box-shadow:var(--shadow);
- display:flex;
- align-items:center;
- gap:20px;
- margin-bottom:25px
+ background:#fff;padding:25px;border-radius:15px;box-shadow:var(--shadow);
+ display:flex;align-items:center;gap:20px;margin-bottom:25px
 }
-
 .student-profile img{
- width:100px;
- height:100px;
- border-radius:50%;
- object-fit:cover;
- border:5px solid var(--green)
+ width:100px;height:100px;border-radius:50%;object-fit:cover;border:5px solid var(--green)
 }
-
-.student-actions{
- display:flex;
- gap:10px;
- margin:20px 0
-}
-
+.student-actions{display:flex;gap:10px;margin:20px 0}
 .student-actions button{
- padding:11px 18px;
- background:var(--blue);
- color:#fff;
- border:0;
- border-radius:7px
+ padding:11px 18px;background:var(--blue);color:#fff;border:0;border-radius:7px
 }
 
-/* =========================================================
- ADMIN
-========================================================= */
-
-#adminPanel{
- display:none;
- min-height:100vh
-}
-
+/* ADMIN */
+#adminPanel{display:none;min-height:100vh}
 .admin-header{
- background:var(--purple);
- color:#fff;
- padding:40px 20px;
- text-align:center
+ background:var(--purple);color:#fff;padding:40px 20px;text-align:center
 }
-
-.admin-header h1{
- color:#fff
-}
-
-.admin-content{
- width:92%;
- max-width:1250px;
- margin:30px auto
-}
-
+.admin-header h1{color:#fff}
+.admin-content{width:92%;max-width:1250px;margin:30px auto}
 .admin-menu{
- display:grid;
- grid-template-columns:repeat(5,1fr);
- gap:12px;
- margin-bottom:25px
+ display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:25px
 }
-
 .admin-menu button{
- padding:14px;
- background:#fff;
- color:var(--purple);
- border:2px solid var(--purple);
- border-radius:7px;
- font-weight:bold
+ padding:14px;background:#fff;color:var(--purple);
+ border:2px solid var(--purple);border-radius:7px;font-weight:bold
 }
+.admin-menu button:hover{background:var(--purple);color:#fff}
+.admin-section{display:none}
+.admin-section.active{display:block}
 
-.admin-menu button:hover{
- background:var(--purple);
- color:#fff
-}
-
-.admin-section{
- display:none
-}
-
-.admin-section.active{
- display:block
-}
-
-/* =========================================================
- ADMIN CLASSES
-========================================================= */
-
+/* ADMIN CLASSES */
 .admin-class-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:20px
+ display:grid;grid-template-columns:repeat(4,1fr);gap:20px
 }
-
 .admin-class-card{
- background:#fff;
- border-radius:15px;
- padding:30px;
- text-align:center;
- box-shadow:var(--shadow);
- border-top:6px solid var(--purple);
- cursor:pointer
+ background:#fff;border-radius:15px;padding:30px;text-align:center;
+ box-shadow:var(--shadow);border-top:6px solid var(--purple);cursor:pointer
 }
-
-.admin-class-card h2{
- color:var(--purple)
-}
-
-.admin-student-list{
- display:none
-}
-
+.admin-class-card h2{color:var(--purple)}
+.admin-student-list{display:none}
 .student-admin-card{
- background:#fff;
- border-radius:12px;
- padding:18px;
- margin:12px 0;
- box-shadow:var(--shadow);
- display:flex;
- align-items:center;
- gap:18px
+ background:#fff;border-radius:12px;padding:18px;margin:12px 0;
+ box-shadow:var(--shadow);display:flex;align-items:center;gap:18px
 }
-
-.student-admin-card img,
-.student-avatar{
- width:75px;
- height:75px;
- border-radius:50%;
- object-fit:cover;
+.student-admin-card img,.student-avatar{
+ width:75px;height:75px;border-radius:50%;object-fit:cover;
  border:3px solid var(--purple)
 }
-
 .student-avatar{
- display:flex;
- align-items:center;
- justify-content:center;
- background:#ddd;
- font-size:32px
+ display:flex;align-items:center;justify-content:center;
+ background:#ddd;font-size:32px
 }
 
-/* =========================================================
- SUBJECT
-========================================================= */
-
+/* SUBJECT */
 .subject-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:18px
+ display:grid;grid-template-columns:repeat(3,1fr);gap:18px
 }
-
 .subject-card{
- background:#fff;
- padding:20px;
- border-radius:10px;
- border-left:5px solid var(--purple);
- box-shadow:var(--shadow)
+ background:#fff;padding:20px;border-radius:10px;
+ border-left:5px solid var(--purple);box-shadow:var(--shadow)
 }
 
-/* =========================================================
- MESSAGES
-========================================================= */
-
+/* MESSAGES */
 .message-card{
- background:#fff;
- border-left:6px solid var(--lightblue);
- padding:18px;
- margin:12px 0;
- border-radius:8px;
- box-shadow:var(--shadow)
+ background:#fff;border-left:6px solid var(--lightblue);
+ padding:18px;margin:12px 0;border-radius:8px;box-shadow:var(--shadow)
 }
+.message-card.return-message{border-left-color:var(--green)}
+.message-card.overdue-message{border-left-color:var(--red)}
+.message-card.request-message{border-left-color:var(--orange)}
+.message-card small{color:#777}
 
-.message-card.return-message{
- border-left-color:var(--green)
-}
-
-.message-card.overdue-message{
- border-left-color:var(--red)
-}
-
-.message-card.request-message{
- border-left-color:var(--orange)
-}
-
-.message-card small{
- color:#777
-}
-
-/* =========================================================
- MODAL
-========================================================= */
-
+/* MODAL */
 .modal{
- display:none;
- position:fixed;
- inset:0;
- background:rgba(0,0,0,.72);
- z-index:999999;
- align-items:center;
- justify-content:center;
- padding:20px
+ display:none;position:fixed;inset:0;background:rgba(0,0,0,.72);
+ z-index:999999;align-items:center;justify-content:center;padding:20px
 }
-
 .modal-box{
- background:#fff;
- width:100%;
- max-width:500px;
- padding:30px;
- border-radius:15px;
- box-shadow:0 15px 50px #000;
- text-align:center;
- max-height:90vh;
- overflow-y:auto
+ background:#fff;width:100%;max-width:500px;padding:30px;
+ border-radius:15px;box-shadow:0 15px 50px #000;text-align:center
 }
-
 .modal-box button{
- width:100%;
- padding:12px;
- border:0;
- border-radius:7px;
- margin-top:7px
+ width:100%;padding:12px;border:0;border-radius:7px;margin-top:7px
 }
+.confirm-btn{background:var(--green);color:#fff}
+.close-btn{background:#777;color:#fff}
+.approve-btn{background:var(--green);color:#fff}
+.reject-btn{background:var(--red);color:#fff}
 
-.confirm-btn{
- background:var(--green);
- color:#fff
-}
-
-.close-btn{
- background:#777;
- color:#fff
-}
-
-.approve-btn{
- background:var(--green);
- color:#fff
-}
-
-.reject-btn{
- background:var(--red);
- color:#fff
-}
-
-.scanned-details{
- background:#f1f8f5;
- border-left:5px solid var(--green);
- text-align:left;
- padding:15px;
- border-radius:7px;
- margin:12px 0
-}
-
-.scanned-details h3{
- margin-top:0;
- color:var(--green)
-}
-
-/* =========================================================
- FOOTER
-========================================================= */
-
+/* FOOTER */
 footer{
- margin-top:50px;
- background:var(--blue);
- color:#fff;
- text-align:center;
- padding:25px
+ margin-top:50px;background:var(--blue);color:#fff;text-align:center;padding:25px
 }
 
-/* =========================================================
- MOBILE
-========================================================= */
-
+/* MOBILE */
 @media(max-width:900px){
-
- .dashboard-grid,
- .books,
- .class-dashboard,
- .admin-class-grid{
+ .dashboard-grid,.books,.class-dashboard,.admin-class-grid{
   grid-template-columns:repeat(2,1fr)
  }
-
- .stats,
- .admin-stat-grid{
-  grid-template-columns:repeat(2,1fr)
- }
-
- .admin-menu{
-  grid-template-columns:repeat(2,1fr)
- }
-
- .subject-grid{
-  grid-template-columns:repeat(2,1fr)
- }
-
- nav{
-  flex-direction:column;
-  gap:8px
- }
+ .stats,.admin-stat-grid{grid-template-columns:repeat(2,1fr)}
+ .admin-menu{grid-template-columns:repeat(2,1fr)}
+ .subject-grid{grid-template-columns:repeat(2,1fr)}
+ nav{flex-direction:column;gap:8px}
 }
-
 @media(max-width:600px){
-
- .welcome-text h1{
-  font-size:21px
- }
-
- .dashboard-grid,
- .books,
- .class-dashboard,
- .admin-class-grid,
- .stats,
- .admin-stat-grid,
- .admin-menu,
- .subject-grid{
-  grid-template-columns:1fr
- }
-
- .search-box{
-  flex-direction:column
- }
-
- .student-profile,
- .student-admin-card{
-  flex-direction:column;
-  text-align:center
- }
-
- table{
-  font-size:12px
- }
-
- th,td{
-  padding:8px
- }
+ .welcome-text h1{font-size:21px}
+ .dashboard-grid,.books,.class-dashboard,.admin-class-grid,
+ .stats,.admin-stat-grid,.admin-menu,.subject-grid{grid-template-columns:1fr}
+ .search-box{flex-direction:column}
+ .student-profile,.student-admin-card{flex-direction:column;text-align:center}
+ table{font-size:12px}
+ th,td{padding:8px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================================================
- SYSTEM LOGIN
-========================================================= -->
+<!-- ================= LOGIN ================= -->
 
 <div id="loginScreen">
 
 <div class="login-background">
 <div class="background-track">
-
 <img src="hie mzugos.jpg" alt="MZUGOSS">
 <img src="images (1).jfif" alt="MZUGOSS">
 <img src="download.jfif" alt="MZUGOSS">
-
 </div>
 </div>
 
@@ -1013,257 +357,100 @@ footer{
 </div>
 
 <div class="login-box">
-
-<img src="MZUGOSS LOGO.png"
-class="login-logo"
-alt="MZUGOSS Logo">
-
+<img src="MZUGOSS LOGO.png" class="login-logo" alt="MZUGOSS Logo">
 <h1>MZUGOSS</h1>
-
 <p>School Library Management System</p>
+<p><strong>Enter system password</strong></p>
 
-<p>
-<strong>Enter system password</strong>
-</p>
+<input id="systemPassword"
+ type="password"
+ placeholder="Enter system password"
+ autocomplete="off"
+ onkeypress="if(event.key==='Enter')login()">
 
-<input
-id="systemPassword"
-type="password"
-placeholder="Enter system password"
-autocomplete="off"
-onkeypress="if(event.key==='Enter')login()">
-
-<button onclick="login()">
-🔐 Continue
-</button>
+<button onclick="login()">🔐 Continue</button>
 
 <p id="loginError" class="error"></p>
-
 </div>
 </div>
 
-<!-- =========================================================
- MAIN SYSTEM
-========================================================= -->
+<!-- ================= MAIN ================= -->
 
 <div id="mainSystem">
 
-<!-- =========================================================
- DASHBOARD SELECTOR
-========================================================= -->
+<!-- ================= DASHBOARD SELECTOR ================= -->
 
 <section id="dashboardSelector">
 
 <div class="dashboard-header">
-
 <img src="MZUGOSS LOGO.png" alt="MZUGOSS">
-
 <h1>MZUGOSS LIBRARY</h1>
-
 <p>Select the dashboard you want to use</p>
-
 </div>
 
 <div class="dashboard-grid">
 
 <div class="dashboard-card">
-
 <div class="icon">📚</div>
-
 <h2>Librarian</h2>
-
-<p>
-Manage books, borrowing, returns,
-requests, messages and overdue books.
-</p>
-
-<button
-class="librarian-btn"
-onclick="openLibrarian()">
-
-Enter Librarian Panel
-
-</button>
-
+<p>Manage books, borrowing, returns, requests, messages and overdue books.</p>
+<button class="librarian-btn" onclick="openLibrarian()">Enter Librarian Panel</button>
 </div>
 
 <div class="dashboard-card">
-
 <div class="icon">🎓</div>
-
 <h2>Student</h2>
-
-<p>
-View available books, request books
-and monitor your borrowed books.
-</p>
-
-<button
-class="student-btn"
-onclick="openStudentPanel()">
-
-Enter Student Panel
-
-</button>
-
+<p>View available books, request books and monitor your borrowed books.</p>
+<button class="student-btn" onclick="openStudentPanel()">Enter Student Panel</button>
 </div>
 
 <div class="dashboard-card">
-
 <div class="icon">👨‍💼</div>
-
 <h2>Administrator</h2>
-
-<p>
-Register students, organise classes
-and monitor library statistics.
-</p>
-
-<button
-class="admin-btn"
-onclick="openAdminPassword()">
-
-Enter Admin Panel
-
-</button>
-
+<p>Register students, organise classes and monitor library statistics.</p>
+<button class="admin-btn" onclick="openAdminPassword()">Enter Admin Panel</button>
 </div>
 
 </div>
 
-<button
-class="dashboard-logout"
-onclick="logout()">
-
-🔒 Logout
-
-</button>
-
+<button class="dashboard-logout" onclick="logout()">🔒 Logout</button>
 </section>
 
-<!-- =========================================================
- LIBRARIAN PASSWORD MODAL
-========================================================= -->
-
-<div id="librarianPasswordModal" class="modal">
-
-<div class="modal-box">
-
-<h2>🔐 Librarian Sign In</h2>
-
-<p>
-Enter the librarian password to access
-the MZUGOSS Librarian Panel.
-</p>
-
-<input
-type="password"
-id="librarianPasswordInput"
-placeholder="Librarian password"
-autocomplete="off"
-onkeypress="if(event.key==='Enter')verifyLibrarianPassword()">
-
-<button
-class="confirm-btn"
-onclick="verifyLibrarianPassword()">
-
-Enter Librarian Panel
-
-</button>
-
-<button
-class="close-btn"
-onclick="closeLibrarianPassword()">
-
-Cancel
-
-</button>
-
-<p
-id="librarianPasswordError"
-class="error">
-</p>
-
-</div>
-</div>
-
-<!-- =========================================================
- LIBRARIAN SYSTEM
-========================================================= -->
+<!-- ================= LIBRARIAN ================= -->
 
 <div id="librarianSystem" style="display:none">
 
 <nav>
 
 <div class="brand">
-
-<img
-src="MZUGOSS LOGO.png"
-class="logo">
-
+<img src="MZUGOSS LOGO.png" class="logo">
 <div>
-
 <div class="logo-text">MZUGOSS</div>
-
-<div class="logo-subtitle">
-Librarian Panel
+<div class="logo-subtitle">Librarian Panel</div>
 </div>
-
-</div>
-
 </div>
 
 <div>
-
 <button onclick="showPage('home')">🏠 Home</button>
-
 <button onclick="showPage('books')">📖 Books</button>
-
 <button onclick="showPage('borrowed')">📚 Borrowed</button>
-
 <button onclick="showPage('requests')">📩 Requests</button>
-
-<button onclick="showPage('messages')">
-🔔 Messages
-<span id="messageBadge"></span>
-</button>
-
-<button onclick="showPage('addBook')">
-➕ Add Book
-</button>
-
-<button onclick="showPage('archive')">
-📦 Archive
-</button>
-
-<button onclick="backToDashboards()">
-🔙 Dashboards
-</button>
-
+<button onclick="showPage('messages')">🔔 Messages <span id="messageBadge"></span></button>
+<button onclick="showPage('addBook')">➕ Add Book</button>
+<button onclick="showPage('archive')">📦 Archive</button>
+<button onclick="backToDashboards()">🔙 Dashboards</button>
 </div>
 
 </nav>
 
-<!-- =========================================================
- HOME
-========================================================= -->
+<!-- HOME -->
 
 <section id="home" class="page active">
 
 <div class="hero">
-
 <h1>📚 MZUGOSS School Library</h1>
-
 <p>CREATE FRIENDSHIPS THROUGH STUDIES</p>
-
-<button
-class="main-button"
-onclick="showPage('books')">
-
-Browse Books
-
-</button>
-
+<button class="main-button" onclick="showPage('books')">Browse Books</button>
 </div>
 
 <div class="stats">
@@ -1289,188 +476,102 @@ Browse Books
 </div>
 
 </div>
-
 </section>
 
-<!-- =========================================================
- BOOKS
-========================================================= -->
+<!-- BOOKS -->
 
 <section id="books" class="page">
 
 <h1>📖 Library Books</h1>
 
 <div class="search-box">
-
-<input
-id="search"
-placeholder="Search title, author, subject or barcode..."
-oninput="displayBooks()">
-
-<button onclick="displayBooks()">
-🔍 Search
-</button>
-
+<input id="search" placeholder="Search title, author, subject or barcode..." oninput="displayBooks()">
+<button onclick="displayBooks()">🔍 Search</button>
 </div>
 
 <div id="bookList" class="books"></div>
-
 </section>
 
-<!-- =========================================================
- BORROWED
-========================================================= -->
+<!-- BORROWED -->
 
 <section id="borrowed" class="page">
 
 <div id="classDashboardView">
 
 <h1>📚 Borrowed Books By Class</h1>
-
 <p>Select a class.</p>
 
 <div class="class-dashboard">
 
-<div
-class="class-card"
-onclick="openBorrowedClass('Form 1')">
-
+<div class="class-card" onclick="openBorrowedClass('Form 1')">
 <div class="class-icon">🎓</div>
-
 <h2>FORM 1</h2>
-
-<span
-id="form1Count"
-class="student-count">
-0 Students
-</span>
-
+<span id="form1Count" class="student-count">0 Students</span>
 </div>
 
-<div
-class="class-card"
-onclick="openBorrowedClass('Form 2')">
-
+<div class="class-card" onclick="openBorrowedClass('Form 2')">
 <div class="class-icon">🎓</div>
-
 <h2>FORM 2</h2>
-
-<span
-id="form2Count"
-class="student-count">
-0 Students
-</span>
-
+<span id="form2Count" class="student-count">0 Students</span>
 </div>
 
-<div
-class="class-card"
-onclick="openBorrowedClass('Form 3')">
-
+<div class="class-card" onclick="openBorrowedClass('Form 3')">
 <div class="class-icon">🎓</div>
-
 <h2>FORM 3</h2>
-
-<span
-id="form3Count"
-class="student-count">
-0 Students
-</span>
-
+<span id="form3Count" class="student-count">0 Students</span>
 </div>
 
-<div
-class="class-card"
-onclick="openBorrowedClass('Form 4')">
-
+<div class="class-card" onclick="openBorrowedClass('Form 4')">
 <div class="class-icon">🎓</div>
-
 <h2>FORM 4</h2>
-
-<span
-id="form4Count"
-class="student-count">
-0 Students
-</span>
-
+<span id="form4Count" class="student-count">0 Students</span>
 </div>
 
 </div>
-
 </div>
 
-<div
-id="classStudentView"
-class="class-student-view">
+<div id="classStudentView" class="class-student-view">
 
-<button
-class="back-btn"
-onclick="backToBorrowedClasses()">
-
-← Back
-
-</button>
+<button class="back-btn" onclick="backToBorrowedClasses()">← Back</button>
 
 <h1 id="selectedClassTitle"></h1>
 
 <div class="search-box">
-
-<input
-id="borrowedSearch"
-placeholder="Search student, book or barcode..."
-oninput="displayBorrowed()">
-
+<input id="borrowedSearch" placeholder="Search student, book or barcode..." oninput="displayBorrowed()">
 </div>
 
 <div id="borrowedList"></div>
-
 </div>
 
 </section>
 
-<!-- =========================================================
- REQUESTS
-========================================================= -->
+<!-- REQUESTS -->
 
 <section id="requests" class="page">
 
 <h1>📩 Student Borrow Requests</h1>
-
-<p>
-Requests sent by registered students.
-</p>
+<p>Requests sent by registered students.</p>
 
 <div id="requestList"></div>
 
 </section>
 
-<!-- =========================================================
- MESSAGES
-========================================================= -->
+<!-- MESSAGES -->
 
 <section id="messages" class="page">
 
 <h1>🔔 Library Messages</h1>
+<p>Returns, overdue notices and student requests appear here.</p>
 
-<p>
-Returns, overdue notices and student requests appear here.
-</p>
-
-<button
-class="delete-btn small-btn"
-onclick="clearMessages()">
-
+<button class="delete-btn small-btn" onclick="clearMessages()">
 🗑️ Clear Messages
-
 </button>
 
 <div id="messageList"></div>
 
 </section>
 
-<!-- =========================================================
- ADD BOOK
-========================================================= -->
+<!-- ADD BOOK -->
 
 <section id="addBook" class="page">
 
@@ -1478,46 +579,25 @@ onclick="clearMessages()">
 
 <h1>➕ Add New Book</h1>
 
-<div class="scanner-box">
-
-<strong>📷 Barcode Scanner</strong>
-
-<p>
-Connect your USB or Bluetooth barcode scanner.
-Click inside the box below and scan the book barcode.
-</p>
-
-<input
-id="bookBarcode"
-class="scanner-input"
-placeholder="Scan book barcode here..."
-autocomplete="off"
-oninput="handleAddBookBarcodeInput()"
-onkeydown="barcodeEnter(event)">
-
-<div
-id="bookBarcodeStatus"
-class="scan-status">
-</div>
-
-</div>
-
 <label>Book Title *</label>
-
-<input
-id="bookTitle"
-placeholder="Enter book title">
+<input id="bookTitle" placeholder="Enter book title">
 
 <label>Author *</label>
+<input id="bookAuthor" placeholder="Enter author">
 
-<input
-id="bookAuthor"
-placeholder="Enter author">
+<label>Book Number / Barcode</label>
+<input id="bookBarcode"
+       placeholder="Scan barcode or type manually"
+       onkeydown="barcodeEnter(event)">
+
+<p style="font-size:13px;color:#777">
+📷 A USB/Bluetooth barcode scanner can be used here.
+The scanner normally enters the barcode as keyboard input.
+</p>
 
 <label>Category / Subject</label>
 
 <select id="bookCategory">
-
 <option>Literature</option>
 <option>Science</option>
 <option>Mathematics</option>
@@ -1530,37 +610,17 @@ placeholder="Enter author">
 <option>CHANCO</option>
 <option>JHANGO</option>
 <option>Other</option>
-
 </select>
 
 <label>Quantity</label>
+<input type="number" id="bookQuantity" min="1" value="1">
 
-<input
-type="number"
-id="bookQuantity"
-min="1"
-value="1">
-
-<p style="font-size:13px;color:#777">
-
-📷 A USB/Bluetooth barcode scanner normally
-works like a keyboard. Scan the barcode and
-the system will automatically attempt to find
-the book details.
-
-</p>
-
-<button onclick="addBook()">
-💾 Add Book
-</button>
+<button onclick="addBook()">💾 Add Book</button>
 
 </div>
-
 </section>
 
-<!-- =========================================================
- BORROW FORM
-========================================================= -->
+<!-- BORROW FORM -->
 
 <section id="borrowFormPage" class="page">
 
@@ -1568,141 +628,70 @@ the book details.
 
 <h2>📚 Borrow Book</h2>
 
-<div class="scanner-box">
-
-<strong>📷 Scan Book Barcode</strong>
-
-<p>
-Scan the physical book barcode. The system will
-automatically bring the book name, author,
-category and book number.
-</p>
-
-<input
-id="borrowBookNumber"
-class="scanner-input"
-placeholder="Scan book barcode..."
-autocomplete="off"
-oninput="handleBorrowBarcodeInput()"
-onkeydown="borrowBarcodeEnter(event)">
-
-<div
-id="borrowBarcodeStatus"
-class="scan-status">
-</div>
-
-</div>
-
 <label>Student Name *</label>
 
-<input
-id="borrowStudentSearch"
-list="studentNameSuggestions"
-placeholder="Search registered student..."
-autocomplete="off"
-oninput="findBorrowStudent()">
+<input id="borrowStudentSearch"
+       list="studentNameSuggestions"
+       placeholder="Search registered student..."
+       autocomplete="off"
+       oninput="findBorrowStudent()">
 
 <datalist id="studentNameSuggestions"></datalist>
 
 <div id="borrowStudentInfo"></div>
 
 <label>Student Form</label>
-
-<input
-id="studentForm"
-readonly>
+<input id="studentForm" readonly>
 
 <label>Book Title</label>
-
-<input
-id="borrowBookTitle"
-readonly>
+<input id="borrowBookTitle" readonly>
 
 <label>Author</label>
+<input id="borrowBookAuthor" readonly>
 
-<input
-id="borrowBookAuthor"
-readonly>
+<label>Book Number / Barcode</label>
+<input id="borrowBookNumber"
+       placeholder="Scan or enter book number">
 
 <label>Category / Subject</label>
-
-<input
-id="borrowBookCategory"
-readonly>
+<input id="borrowBookCategory" readonly>
 
 <label>Borrow Date</label>
-
-<input
-type="date"
-id="borrowDate">
+<input type="date" id="borrowDate">
 
 <label>Due Date</label>
+<input type="date" id="dueDate">
 
-<input
-type="date"
-id="dueDate">
+<button class="borrow-submit" style="
+width:100%;padding:13px;background:#27ae60;color:white;
+border:0;border-radius:7px;font-weight:bold"
+onclick="confirmBorrow()">✅ Confirm Borrowing</button>
 
-<button
-class="borrow-submit"
-style="
-width:100%;
-padding:13px;
-background:#27ae60;
-color:white;
-border:0;
-border-radius:7px;
-font-weight:bold"
-onclick="confirmBorrow()">
-
-✅ Confirm Borrowing
-
-</button>
-
-<button
-onclick="showPage('books')"
-style="
-width:100%;
-padding:12px;
-margin-top:10px;
-background:#777;
-color:white;
-border:0;
-border-radius:7px">
-
-Cancel
-
-</button>
+<button onclick="showPage('books')" style="
+width:100%;padding:12px;margin-top:10px;background:#777;
+color:white;border:0;border-radius:7px">Cancel</button>
 
 </div>
-
 </section>
 
-<!-- =========================================================
- ARCHIVE
-========================================================= -->
+<!-- ARCHIVE -->
 
 <section id="archive" class="page">
 
 <h1>📦 Returned Books Archive</h1>
-
 <div id="archiveList"></div>
 
 </section>
 
 </div>
 
-<!-- =========================================================
- STUDENT
-========================================================= -->
+<!-- ================= STUDENT ================= -->
 
 <div id="studentPanel">
 
 <div class="student-panel-header">
-
 <h1>🎓 MZUGOSS Student Panel</h1>
-
 <p>Student Library Account</p>
-
 </div>
 
 <div id="studentLoginView">
@@ -1711,53 +700,24 @@ Cancel
 
 <h2>🎓 Student Sign In</h2>
 
-<input
-id="studentLoginName"
-placeholder="Student full name">
+<input id="studentLoginName" placeholder="Student full name">
+<input id="studentLoginId" placeholder="Library ID Number">
 
-<input
-id="studentLoginId"
-placeholder="Library ID Number">
+<button onclick="studentLogin()">🔐 Sign In</button>
 
-<button onclick="studentLogin()">
-🔐 Sign In
-</button>
+<p id="studentLoginError" class="error"></p>
 
-<p
-id="studentLoginError"
-class="error">
-</p>
-
-<button
-onclick="backToDashboards()"
-style="margin-top:10px;background:#777">
-
-← Back
-
-</button>
+<button onclick="backToDashboards()" style="
+margin-top:10px;background:#777">← Back</button>
 
 </div>
-
 </div>
 
-<div
-id="studentAccountView"
-style="
-display:none;
-width:92%;
-max-width:1200px;
-margin:30px auto">
+<div id="studentAccountView" style="display:none;width:92%;max-width:1200px;margin:30px auto">
 
 <div class="student-actions">
-
-<button onclick="studentLogout()">
-🔒 Logout
-</button>
-
-<button onclick="backToDashboards()">
-🔙 Dashboards
-</button>
-
+<button onclick="studentLogout()">🔒 Logout</button>
+<button onclick="backToDashboards()">🔙 Dashboards</button>
 </div>
 
 <div id="studentProfile"></div>
@@ -1765,201 +725,104 @@ margin:30px auto">
 <h2>📚 Available Books</h2>
 
 <div class="search-box">
-
-<input
-id="studentBookSearch"
+<input id="studentBookSearch"
 placeholder="Search available books..."
 oninput="displayStudentBooks()">
-
 </div>
 
-<div
-id="studentBookList"
-class="books">
-</div>
+<div id="studentBookList" class="books"></div>
 
 <h2>📩 My Borrow Requests</h2>
-
 <div id="myRequests"></div>
 
 <h2>📚 My Borrowed Books</h2>
-
 <div id="studentBorrowedList"></div>
 
 </div>
-
 </div>
 
-<!-- =========================================================
- ADMIN
-========================================================= -->
+<!-- ================= ADMIN ================= -->
 
 <div id="adminPanel">
 
 <div class="admin-header">
-
 <h1>👨‍💼 MZUGOSS Administrator Panel</h1>
-
 <p>Library Administration</p>
-
 </div>
 
 <div class="admin-content">
 
 <div class="admin-menu">
-
-<button onclick="showAdminSection('adminDashboard')">
-📊 Dashboard
-</button>
-
-<button onclick="showAdminSection('registerStudent')">
-➕ Register
-</button>
-
-<button onclick="showAdminSection('studentRecords')">
-👨‍🎓 Students
-</button>
-
-<button onclick="showAdminSection('subjectStatistics')">
-📚 Subjects
-</button>
-
-<button onclick="backToDashboards()">
-🔙 Dashboards
-</button>
-
+<button onclick="showAdminSection('adminDashboard')">📊 Dashboard</button>
+<button onclick="showAdminSection('registerStudent')">➕ Register</button>
+<button onclick="showAdminSection('studentRecords')">👨‍🎓 Students</button>
+<button onclick="showAdminSection('subjectStatistics')">📚 Subjects</button>
+<button onclick="backToDashboards()">🔙 Dashboards</button>
 </div>
 
-<section
-id="adminDashboard"
-class="admin-section active">
+<section id="adminDashboard" class="admin-section active">
 
 <h2>📊 Library Overview</h2>
 
 <div class="admin-stat-grid">
 
-<div class="admin-stat">
-<h2 id="adminTotalTitles">0</h2>
-<p>Book Titles</p>
-</div>
-
-<div class="admin-stat">
-<h2 id="adminTotalCopies">0</h2>
-<p>Total Copies</p>
-</div>
-
-<div class="admin-stat">
-<h2 id="adminAvailableCopies">0</h2>
-<p>Available Copies</p>
-</div>
-
-<div class="admin-stat">
-<h2 id="adminBorrowedCopies">0</h2>
-<p>Borrowed Copies</p>
-</div>
-
-<div class="admin-stat">
-<h2 id="adminStudents">0</h2>
-<p>Registered Students</p>
-</div>
-
-<div class="admin-stat">
-<h2 id="adminBorrowingStudents">0</h2>
-<p>Students Borrowing</p>
-</div>
+<div class="admin-stat"><h2 id="adminTotalTitles">0</h2><p>Book Titles</p></div>
+<div class="admin-stat"><h2 id="adminTotalCopies">0</h2><p>Total Copies</p></div>
+<div class="admin-stat"><h2 id="adminAvailableCopies">0</h2><p>Available Copies</p></div>
+<div class="admin-stat"><h2 id="adminBorrowedCopies">0</h2><p>Borrowed Copies</p></div>
+<div class="admin-stat"><h2 id="adminStudents">0</h2><p>Registered Students</p></div>
+<div class="admin-stat"><h2 id="adminBorrowingStudents">0</h2><p>Students Borrowing</p></div>
 
 </div>
-
 </section>
 
-<section
-id="registerStudent"
-class="admin-section">
+<section id="registerStudent" class="admin-section">
 
 <div class="admin-form">
 
 <h2>➕ Register Student</h2>
 
 <label>Full Name *</label>
-
 <input id="newStudentName">
 
 <label>Library ID *</label>
-
-<input
-id="newStudentLibraryId"
-placeholder="Example: MZG001">
+<input id="newStudentLibraryId" placeholder="Example: MZG001">
 
 <label>Form *</label>
-
 <select id="newStudentForm">
-
-<option value="">
-Select Form
-</option>
-
+<option value="">Select Form</option>
 <option>Form 1</option>
 <option>Form 2</option>
 <option>Form 3</option>
 <option>Form 4</option>
-
 </select>
 
 <label>Student Photo</label>
+<input type="file" id="newStudentPhoto" accept="image/*" onchange="previewPhoto(event)">
 
-<input
-type="file"
-id="newStudentPhoto"
-accept="image/*"
-onchange="previewPhoto(event)">
-
-<img
-id="studentPhotoPreview"
+<img id="studentPhotoPreview"
 class="student-avatar"
 src=""
 style="display:block;margin:10px auto">
 
-<button
-onclick="registerStudent()"
-style="
-width:100%;
-padding:13px;
-background:#8e44ad;
-color:#fff;
-border:0;
-border-radius:7px;
-font-weight:bold">
-
+<button onclick="registerStudent()" style="
+width:100%;padding:13px;background:#8e44ad;color:#fff;
+border:0;border-radius:7px;font-weight:bold">
 💾 Register Student
-
 </button>
 
 </div>
-
 </section>
 
-<section
-id="studentRecords"
-class="admin-section">
+<section id="studentRecords" class="admin-section">
 
 <h2>👨‍🎓 Students By Class</h2>
 
-<div
-id="adminClassDashboard"
-class="admin-class-grid">
-</div>
+<div id="adminClassDashboard" class="admin-class-grid"></div>
 
-<div
-id="adminClassStudents"
-class="admin-student-list">
+<div id="adminClassStudents" class="admin-student-list">
 
-<button
-class="back-btn"
-onclick="backToAdminClasses()">
-
-← Back to Forms
-
-</button>
+<button class="back-btn" onclick="backToAdminClasses()">← Back to Forms</button>
 
 <h2 id="adminSelectedClass"></h2>
 
@@ -1969,142 +832,69 @@ onclick="backToAdminClasses()">
 
 </section>
 
-<section
-id="subjectStatistics"
-class="admin-section">
+<section id="subjectStatistics" class="admin-section">
 
 <h2>📚 Books Per Subject / Category</h2>
-
-<div
-id="subjectStatisticsList"
-class="subject-grid">
-</div>
+<div id="subjectStatisticsList" class="subject-grid"></div>
 
 </section>
 
 </div>
-
 </div>
 
-<!-- =========================================================
- ADMIN PASSWORD MODAL
-========================================================= -->
+<!-- ================= PASSWORD MODAL ================= -->
 
-<div
-id="adminPasswordModal"
-class="modal">
+<div id="adminPasswordModal" class="modal">
 
 <div class="modal-box">
 
 <h2>🔐 Administrator Access</h2>
 
-<input
-type="password"
+<input type="password"
 id="adminPasswordInput"
 placeholder="Admin password"
 onkeypress="if(event.key==='Enter')verifyAdminPassword()">
 
-<button
-class="confirm-btn"
-onclick="verifyAdminPassword()">
-
+<button class="confirm-btn" onclick="verifyAdminPassword()">
 Enter Admin Panel
-
 </button>
 
-<button
-class="close-btn"
-onclick="closeAdminPassword()">
+<button class="close-btn" onclick="closeAdminPassword()">Cancel</button>
 
-Cancel
-
-</button>
-
-<p
-id="adminPasswordError"
-class="error">
-</p>
+<p id="adminPasswordError" class="error"></p>
 
 </div>
-
 </div>
 
-<!-- =========================================================
- RETURN MODAL
-========================================================= -->
+<!-- ================= RETURN MODAL ================= -->
 
-<div
-id="returnPasswordModal"
-class="modal">
+<div id="returnPasswordModal" class="modal">
 
 <div class="modal-box">
 
-<h2>🔐 Return Book</h2>
-
-<div class="scanner-box">
-
-<strong>📷 Scan Book Barcode</strong>
-
-<p>
-Scan the book barcode to automatically
-find the borrowed book.
-</p>
-
-<input
-id="returnBarcode"
-class="scanner-input"
-placeholder="Scan returned book barcode..."
-autocomplete="off"
-oninput="handleReturnBarcodeInput()"
-onkeydown="returnBarcodeEnter(event)">
-
-<div
-id="returnBarcodeStatus"
-class="scan-status">
-</div>
-
-</div>
+<h2>🔐 Authorisation Required</h2>
 
 <div id="returnBookDetails"></div>
 
-<input
-type="password"
+<input type="password"
 id="returnPassword"
 placeholder="System password"
 onkeypress="if(event.key==='Enter')confirmReturnPassword()">
 
-<button
-class="confirm-btn"
-onclick="confirmReturnPassword()">
-
+<button class="confirm-btn" onclick="confirmReturnPassword()">
 Authorise Return
-
 </button>
 
-<button
-class="close-btn"
-onclick="closeReturnPassword()">
+<button class="close-btn" onclick="closeReturnPassword()">Cancel</button>
 
-Cancel
-
-</button>
-
-<p
-id="returnPasswordError"
-class="error">
-</p>
+<p id="returnPasswordError" class="error"></p>
 
 </div>
-
 </div>
 
-<!-- =========================================================
- REQUEST MODAL
-========================================================= -->
+<!-- ================= REQUEST MODAL ================= -->
 
-<div
-id="requestModal"
-class="modal">
+<div id="requestModal" class="modal">
 
 <div class="modal-box">
 
@@ -2112,42 +902,22 @@ class="modal">
 
 <div id="requestBookDetails"></div>
 
-<button
-class="confirm-btn"
-onclick="sendBorrowRequest()">
-
+<button class="confirm-btn" onclick="sendBorrowRequest()">
 Send Request
-
 </button>
 
-<button
-class="close-btn"
-onclick="closeRequestModal()">
-
+<button class="close-btn" onclick="closeRequestModal()">
 Cancel
-
 </button>
 
 </div>
-
 </div>
 
-<div
-id="message"
-class="message">
-</div>
+<div id="message" class="message"></div>
 
 <footer>
-
-<p>
-© 2026 MZUGOSS School Library Management System
-</p>
-
-<p>
-Created by
-<strong>LONDON PETER, PREMA AND DANIEL J</strong>
-</p>
-
+<p>© 2026 MZUGOSS School Library Management System</p>
+<p>Created by <strong>LONDON PETER, PREMA AND DANIEL J</strong></p>
 </footer>
 
 </div>
@@ -2158,97 +928,27 @@ Created by
  PASSWORDS
 ========================================================= */
 
-const SYSTEM_PASSWORD="Mzugoss @ 1";
-
-/*
- * Librarian password requested by the user.
- */
-const LIBRARIAN_PASSWORD="Mzugoss @ 1";
-
+const SYSTEM_PASSWORD="Mzugoss@1";
 const ADMIN_PASSWORD="GREENCITY@2008";
 
 /* =========================================================
  DATA
 ========================================================= */
 
-let books=JSON.parse(
- localStorage.getItem("schoolBooks")
-)||[
- {
-  id:1,
-  title:"Things Fall Apart",
-  author:"Chinua Achebe",
-  category:"Literature",
-  quantity:3,
-  available:3,
-  barcode:"LIT001"
- },
- {
-  id:2,
-  title:"The River Between",
-  author:"Ngugi wa Thiong'o",
-  category:"Literature",
-  quantity:2,
-  available:2,
-  barcode:"LIT002"
- },
- {
-  id:3,
-  title:"Introduction to Biology",
-  author:"School Textbook",
-  category:"Science",
-  quantity:5,
-  available:5,
-  barcode:"SCI001"
- },
- {
-  id:4,
-  title:"Mathematics for Schools",
-  author:"School Textbook",
-  category:"Mathematics",
-  quantity:4,
-  available:4,
-  barcode:"MAT001"
- },
- {
-  id:5,
-  title:"World History",
-  author:"School Textbook",
-  category:"History",
-  quantity:3,
-  available:3,
-  barcode:"HIS001"
- },
- {
-  id:6,
-  title:"Computer Science Basics",
-  author:"School Textbook",
-  category:"Computer Science",
-  quantity:2,
-  available:2,
-  barcode:"COM001"
- }
+let books=JSON.parse(localStorage.getItem("schoolBooks"))||[
+ {id:1,title:"Things Fall Apart",author:"Chinua Achebe",category:"Literature",quantity:3,available:3,barcode:"LIT001"},
+ {id:2,title:"The River Between",author:"Ngugi wa Thiong'o",category:"Literature",quantity:2,available:2,barcode:"LIT002"},
+ {id:3,title:"Introduction to Biology",author:"School Textbook",category:"Science",quantity:5,available:5,barcode:"SCI001"},
+ {id:4,title:"Mathematics for Schools",author:"School Textbook",category:"Mathematics",quantity:4,available:4,barcode:"MAT001"},
+ {id:5,title:"World History",author:"School Textbook",category:"History",quantity:3,available:3,barcode:"HIS001"},
+ {id:6,title:"Computer Science Basics",author:"School Textbook",category:"Computer Science",quantity:2,available:2,barcode:"COM001"}
 ];
 
-let borrowed=JSON.parse(
- localStorage.getItem("borrowedBooks")
-)||[];
-
-let returnedArchive=JSON.parse(
- localStorage.getItem("returnedArchive")
-)||[];
-
-let students=JSON.parse(
- localStorage.getItem("mzugossStudents")
-)||[];
-
-let requests=JSON.parse(
- localStorage.getItem("mzugossRequests")
-)||[];
-
-let messages=JSON.parse(
- localStorage.getItem("mzugossMessages")
-)||[];
+let borrowed=JSON.parse(localStorage.getItem("borrowedBooks"))||[];
+let returnedArchive=JSON.parse(localStorage.getItem("returnedArchive"))||[];
+let students=JSON.parse(localStorage.getItem("mzugossStudents"))||[];
+let requests=JSON.parse(localStorage.getItem("mzugossRequests"))||[];
+let messages=JSON.parse(localStorage.getItem("mzugossMessages"))||[];
 
 let selectedBookId=null;
 let selectedReturnId=null;
@@ -2256,101 +956,49 @@ let selectedClass=null;
 let loggedInStudent=null;
 let selectedRequestBook=null;
 
-let librarianAuthenticated=false;
-
 /* =========================================================
- SAVE DATA
+ SAVE
 ========================================================= */
 
 function saveData(){
-
- localStorage.setItem(
-  "schoolBooks",
-  JSON.stringify(books)
- );
-
- localStorage.setItem(
-  "borrowedBooks",
-  JSON.stringify(borrowed)
- );
-
- localStorage.setItem(
-  "returnedArchive",
-  JSON.stringify(returnedArchive)
- );
-
- localStorage.setItem(
-  "mzugossStudents",
-  JSON.stringify(students)
- );
-
- localStorage.setItem(
-  "mzugossRequests",
-  JSON.stringify(requests)
- );
-
- localStorage.setItem(
-  "mzugossMessages",
-  JSON.stringify(messages)
+ localStorage.setItem("schoolBooks",JSON.stringify(books));
+ localStorage.setItem("borrowedBooks",JSON.stringify(borrowed));
+ localStorage.setItem("returnedArchive",JSON.stringify(returnedArchive));
+ localStorage.setItem("mzugossStudents",JSON.stringify(students));
+ localStorage.setItem("mzugossRequests",JSON.stringify(requests));
+ localStorage.setItem("mzugossMessages",JSON.stringify(messages));
 }
 
 /* =========================================================
- SYSTEM LOGIN
+ LOGIN
 ========================================================= */
 
 function login(){
 
- const p=document
- .getElementById("systemPassword")
- .value;
+ const p=document.getElementById("systemPassword").value;
 
  if(p===SYSTEM_PASSWORD){
 
-  sessionStorage.setItem(
-   "mzugossLoggedIn",
-   "true"
-  );
+  sessionStorage.setItem("mzugossLoggedIn","true");
 
-  document.getElementById(
-   "loginScreen"
-  ).style.display="none";
-
-  document.getElementById(
-   "mainSystem"
-  ).style.display="block";
+  document.getElementById("loginScreen").style.display="none";
+  document.getElementById("mainSystem").style.display="block";
 
  }else{
 
-  document.getElementById(
-   "loginError"
-  ).textContent=
+  document.getElementById("loginError").textContent=
   "❌ Incorrect password.";
 
  }
 }
 
-if(
- sessionStorage.getItem("mzugossLoggedIn")
- ==="true"
-){
-
- document.getElementById(
-  "loginScreen"
- ).style.display="none";
-
- document.getElementById(
-  "mainSystem"
- ).style.display="block";
+if(sessionStorage.getItem("mzugossLoggedIn")==="true"){
+ document.getElementById("loginScreen").style.display="none";
+ document.getElementById("mainSystem").style.display="block";
 }
 
 function logout(){
-
- sessionStorage.removeItem(
-  "mzugossLoggedIn"
- );
-
- librarianAuthenticated=false;
-
+ sessionStorage.removeItem("mzugossLoggedIn");
  location.reload();
 }
 
@@ -2360,107 +1008,41 @@ function logout(){
 
 function openLibrarian(){
 
- document.getElementById(
-  "librarianPasswordInput"
- ).value="";
-
- document.getElementById(
-  "librarianPasswordError"
- ).textContent="";
-
- document.getElementById(
-  "librarianPasswordModal"
- ).style.display="flex";
-}
-
-function verifyLibrarianPassword(){
-
- const password=document
- .getElementById(
-  "librarianPasswordInput"
- )
- .value;
-
- if(password!==LIBRARIAN_PASSWORD){
-
-  document.getElementById(
-   "librarianPasswordError"
-  ).textContent=
-  "❌ Incorrect librarian password.";
-
-  return;
- }
-
- librarianAuthenticated=true;
-
- closeLibrarianPassword();
-
  hideAllPanels();
 
- document.getElementById(
-  "librarianSystem"
- ).style.display="block";
+ document.getElementById("librarianSystem").style.display="block";
 
  updateStats();
  displayBooks();
  updateStudentSuggestions();
  displayMessages();
  displayRequests();
-
-}
-
-function closeLibrarianPassword(){
-
- document.getElementById(
-  "librarianPasswordModal"
- ).style.display="none";
 }
 
 function openStudentPanel(){
 
  hideAllPanels();
 
- document.getElementById(
-  "studentPanel"
- ).style.display="block";
-
- document.getElementById(
-  "studentLoginView"
- ).style.display="block";
-
- document.getElementById(
-  "studentAccountView"
- ).style.display="none";
+ document.getElementById("studentPanel").style.display="block";
+ document.getElementById("studentLoginView").style.display="block";
+ document.getElementById("studentAccountView").style.display="none";
 }
 
 function hideAllPanels(){
 
- document.getElementById(
-  "dashboardSelector"
- ).style.display="none";
+ document.getElementById("dashboardSelector").style.display="none";
+ document.getElementById("librarianSystem").style.display="none";
+ document.getElementById("studentPanel").style.display="none";
+ document.getElementById("adminPanel").style.display="none";
 
- document.getElementById(
-  "librarianSystem"
- ).style.display="none";
-
- document.getElementById(
-  "studentPanel"
- ).style.display="none";
-
- document.getElementById(
-  "adminPanel"
- ).style.display="none";
 }
 
 function backToDashboards(){
 
  hideAllPanels();
 
- librarianAuthenticated=false;
+ document.getElementById("dashboardSelector").style.display="block";
 
- document.getElementById(
-  "dashboardSelector"
- ).style.display="block";
 }
 
 /* =========================================================
@@ -2468,50 +1050,29 @@ function backToDashboards(){
 ========================================================= */
 
 function openAdminPassword(){
-
- document.getElementById(
-  "adminPasswordInput"
- ).value="";
-
- document.getElementById(
-  "adminPasswordError"
- ).textContent="";
-
- document.getElementById(
-  "adminPasswordModal"
- ).style.display="flex";
+ document.getElementById("adminPasswordInput").value="";
+ document.getElementById("adminPasswordError").textContent="";
+ document.getElementById("adminPasswordModal").style.display="flex";
 }
 
 function closeAdminPassword(){
-
- document.getElementById(
-  "adminPasswordModal"
- ).style.display="none";
+ document.getElementById("adminPasswordModal").style.display="none";
 }
 
 function verifyAdminPassword(){
 
- const p=document
- .getElementById("adminPasswordInput")
- .value;
+ const p=document.getElementById("adminPasswordInput").value;
 
  if(p!==ADMIN_PASSWORD){
-
-  document.getElementById(
-   "adminPasswordError"
-  ).textContent=
+  document.getElementById("adminPasswordError").textContent=
   "❌ Incorrect administrator password.";
-
   return;
  }
 
  closeAdminPassword();
-
  hideAllPanels();
 
- document.getElementById(
-  "adminPanel"
- ).style.display="block";
+ document.getElementById("adminPanel").style.display="block";
 
  updateAdminDashboard();
  displayAdminClasses();
@@ -2524,59 +1085,29 @@ function verifyAdminPassword(){
 
 function showPage(page){
 
- if(!librarianAuthenticated){
-  openLibrarian();
-  return;
- }
+ document.querySelectorAll("#librarianSystem .page")
+ .forEach(x=>x.classList.remove("active"));
 
- document.querySelectorAll(
-  "#librarianSystem .page"
- ).forEach(x=>
-  x.classList.remove("active")
- );
+ document.getElementById(page).classList.add("active");
 
- document.getElementById(
-  page
- ).classList.add("active");
+ if(page==="books")displayBooks();
+ if(page==="borrowed")showBorrowedClasses();
+ if(page==="requests")displayRequests();
+ if(page==="messages")displayMessages();
+ if(page==="archive")displayArchive();
+ if(page==="addBook")resetBookForm();
 
- if(page==="books")
-  displayBooks();
-
- if(page==="borrowed")
-  showBorrowedClasses();
-
- if(page==="requests")
-  displayRequests();
-
- if(page==="messages")
-  displayMessages();
-
- if(page==="archive")
-  displayArchive();
-
- if(page==="addBook")
-  resetBookForm();
-
- window.scrollTo({
-  top:0,
-  behavior:"smooth"
- });
+ window.scrollTo({top:0,behavior:"smooth"});
 }
 
 /* =========================================================
- BOOK DISPLAY
+ BOOKS
 ========================================================= */
 
 function displayBooks(){
 
- const container=document
- .getElementById("bookList");
-
- const search=document
- .getElementById("search")
- .value
- .toLowerCase()
- .trim();
+ const container=document.getElementById("bookList");
+ const search=document.getElementById("search").value.toLowerCase().trim();
 
  container.innerHTML="";
 
@@ -2584,68 +1115,35 @@ function displayBooks(){
   b.title.toLowerCase().includes(search)||
   b.author.toLowerCase().includes(search)||
   b.category.toLowerCase().includes(search)||
-  String(b.barcode||"")
-  .toLowerCase()
-  .includes(search)
+  String(b.barcode||"").toLowerCase().includes(search)
  );
 
  if(!filtered.length){
-
-  container.innerHTML=
-  "<p>No books found.</p>";
-
+  container.innerHTML="<p>No books found.</p>";
   return;
  }
 
  filtered.forEach(book=>{
 
   const div=document.createElement("div");
-
   div.className="book";
 
   div.innerHTML=`
+   <h3>📕 ${escapeHTML(book.title)}</h3>
+   <p><strong>Author:</strong> ${escapeHTML(book.author)}</p>
+   <p><strong>Subject:</strong> ${escapeHTML(book.category)}</p>
+   <p><strong>Book Number:</strong> ${escapeHTML(book.barcode||"Not assigned")}</p>
+   <p><strong>Available:</strong> ${book.available} / ${book.quantity}</p>
 
-   <h3>
-   📕 ${escapeHTML(book.title)}
-   </h3>
-
-   <p>
-   <strong>Author:</strong>
-   ${escapeHTML(book.author)}
-   </p>
-
-   <p>
-   <strong>Subject:</strong>
-   ${escapeHTML(book.category)}
-   </p>
-
-   <p>
-   <strong>Book Number:</strong>
-   ${escapeHTML(book.barcode||"Not assigned")}
-   </p>
-
-   <p>
-   <strong>Available:</strong>
-   ${book.available} / ${book.quantity}
-   </p>
-
-   <button
-   class="borrow-book-btn"
-   onclick="borrowBook(${book.id})"
-   ${book.available<=0?"disabled":""}>
-
-   ${book.available>0?
-   "📚 Borrow":
-   "Unavailable"}
-
+   <button class="borrow-book-btn"
+    onclick="borrowBook(${book.id})"
+    ${book.available<=0?"disabled":""}>
+    ${book.available>0?"📚 Borrow":"Unavailable"}
    </button>
 
-   <button
-   class="delete-book-btn"
-   onclick="deleteBook(${book.id})">
-
-   🗑️ Delete
-
+   <button class="delete-book-btn"
+    onclick="deleteBook(${book.id})">
+    🗑️ Delete
    </button>
   `;
 
@@ -2654,659 +1152,162 @@ function displayBooks(){
 }
 
 /* =========================================================
- BARCODE HELPERS
-========================================================= */
-
-function normalizeBarcode(value){
-
- return String(value||"")
- .trim()
- .replace(/\s+/g,"")
- .toLowerCase();
-}
-
-function findBookByBarcode(barcode){
-
- const code=normalizeBarcode(barcode);
-
- if(!code)return null;
-
- return books.find(book=>
-  normalizeBarcode(book.barcode)===code
- );
-}
-
-/*
- * Google Books lookup.
- *
- * This allows ISBN / ISBN-13 barcode scanners
- * to retrieve book information automatically.
- */
-
-async function lookupBookOnline(barcode){
-
- const clean=String(barcode||"")
- .trim();
-
- if(!clean)return null;
-
- /*
-  Only attempt an online ISBN lookup for
-  ISBN-looking numeric barcodes.
- */
- const isbn=clean.replace(/[-\s]/g,"");
-
- if(!/^\d{10}(\d{3})?$/.test(isbn)){
-  return null;
- }
-
- try{
-
-  const response=await fetch(
-   "https://www.googleapis.com/books/v1/volumes?q=isbn:"+isbn
-  );
-
-  if(!response.ok)return null;
-
-  const data=await response.json();
-
-  if(
-   !data.items||
-   !data.items.length
-  ){
-   return null;
-  }
-
-  const info=data.items[0].volumeInfo||{};
-
-  return{
-   title:info.title||"",
-   author:
-    info.authors?
-    info.authors.join(", "):
-    "",
-   category:
-    info.categories?
-    info.categories[0]:
-    "Other"
-  };
-
- }catch(error){
-
-  console.log(
-   "Google Books lookup failed:",
-   error
-  );
-
-  return null;
- }
-}
-
-/* =========================================================
- ADD BOOK BARCODE
-========================================================= */
-
-let addBookBarcodeTimer=null;
-
-function handleAddBookBarcodeInput(){
-
- const barcode=document
- .getElementById("bookBarcode")
- .value
- .trim();
-
- clearTimeout(addBookBarcodeTimer);
-
- if(!barcode){
-
-  document.getElementById(
-   "bookBarcodeStatus"
-  ).textContent="";
-
-  return;
- }
-
- addBookBarcodeTimer=setTimeout(
-  ()=>processAddBookBarcode(barcode),
-  250
- );
-}
-
-async function processAddBookBarcode(barcode){
-
- const status=document
- .getElementById("bookBarcodeStatus");
-
- status.className="scan-status scan-info";
-
- status.textContent=
- "🔎 Searching for book information...";
-
- /*
-  First search local library.
- */
- const existing=findBookByBarcode(barcode);
-
- if(existing){
-
-  document.getElementById(
-   "bookTitle"
-  ).value=existing.title;
-
-  document.getElementById(
-   "bookAuthor"
-  ).value=existing.author;
-
-  document.getElementById(
-   "bookCategory"
-  ).value=existing.category;
-
-  status.className=
-  "scan-status scan-success";
-
-  status.textContent=
-  "✓ Book found in the library.";
-
-  return;
- }
-
- /*
-  If not local, try ISBN / Google Books.
- */
- const online=await lookupBookOnline(barcode);
-
- if(online){
-
-  document.getElementById(
-   "bookTitle"
-  ).value=online.title;
-
-  document.getElementById(
-   "bookAuthor"
-  ).value=online.author;
-
-  const categorySelect=
-  document.getElementById(
-   "bookCategory"
-  );
-
-  const optionExists=
-   [...categorySelect.options]
-   .some(option=>
-    option.value.toLowerCase()===
-    online.category.toLowerCase()
-   );
-
-  if(optionExists){
-   categorySelect.value=online.category;
-  }else{
-   categorySelect.value="Other";
-  }
-
-  status.className=
-  "scan-status scan-success";
-
-  status.textContent=
-  "✓ Book information found automatically.";
-
- }else{
-
-  status.className=
-  "scan-status scan-info";
-
-  status.textContent=
-  "✓ Barcode captured. Enter the book title and author manually if this barcode is not an ISBN.";
- }
-}
-
-function barcodeEnter(e){
-
- if(e.key==="Enter"){
-
-  e.preventDefault();
-
-  const barcode=document
-  .getElementById("bookBarcode")
-  .value
-  .trim();
-
-  if(barcode){
-   processAddBookBarcode(barcode);
-  }
- }
-}
-
-/* =========================================================
  ADD BOOK
 ========================================================= */
 
 function addBook(){
 
- const title=document
- .getElementById("bookTitle")
- .value
- .trim();
-
- const author=document
- .getElementById("bookAuthor")
- .value
- .trim();
-
- const category=document
- .getElementById("bookCategory")
- .value;
-
- const barcode=document
- .getElementById("bookBarcode")
- .value
- .trim();
-
- const quantity=Number(
-  document.getElementById("bookQuantity")
-  .value
- );
+ const title=document.getElementById("bookTitle").value.trim();
+ const author=document.getElementById("bookAuthor").value.trim();
+ const category=document.getElementById("bookCategory").value;
+ const barcode=document.getElementById("bookBarcode").value.trim();
+ const quantity=Number(document.getElementById("bookQuantity").value);
 
  if(!title||!author||quantity<1){
-
-  showMessage(
-   "Book title, author and quantity are required."
-  );
-
+  showMessage("Book title, author and quantity are required.");
   return;
  }
 
- if(
-  barcode &&
-  books.some(b=>
-   normalizeBarcode(b.barcode)===
-   normalizeBarcode(barcode)
-  )
- ){
-
-  showMessage(
-   "That barcode/book number already exists."
-  );
-
+ if(barcode && books.some(b=>
+  String(b.barcode||"").toLowerCase()===barcode.toLowerCase()
+  )){
+  showMessage("That barcode/book number already exists.");
   return;
  }
 
  books.push({
-
   id:Date.now(),
-
   title,
-
   author,
-
   category,
-
-  barcode:
-   barcode||
-   ("MZG-"+Date.now()),
-
+  barcode:barcode||("MZG-"+Date.now()),
   quantity,
-
   available:quantity
-
  });
 
  saveData();
-
  resetBookForm();
-
  updateStats();
-
  updateAdminDashboard();
-
  displaySubjectStatistics();
-
  displayBooks();
 
- showMessage(
-  "Book added successfully."
- );
+ showMessage("Book added successfully.");
 }
 
 function resetBookForm(){
 
- [
-  "bookTitle",
-  "bookAuthor",
-  "bookBarcode"
- ].forEach(id=>{
+ ["bookTitle","bookAuthor","bookBarcode"].forEach(id=>{
   document.getElementById(id).value="";
  });
 
- document.getElementById(
-  "bookQuantity"
- ).value=1;
+ document.getElementById("bookQuantity").value=1;
+}
 
- const status=document
- .getElementById("bookBarcodeStatus");
-
- if(status){
-  status.textContent="";
-  status.className="scan-status";
+function barcodeEnter(e){
+ if(e.key==="Enter"){
+  e.preventDefault();
+  showMessage("Barcode captured.");
  }
 }
 
 function deleteBook(id){
 
- const book=books.find(
-  b=>b.id===id
- );
+ const book=books.find(b=>b.id===id);
 
  if(!book)return;
 
- if(
-  borrowed.some(x=>
-   x.bookId===id
-  )
- ){
-
-  showMessage(
-   "This book cannot be deleted while borrowed."
-  );
-
+ if(borrowed.some(x=>x.bookId===id)){
+  showMessage("This book cannot be deleted while borrowed.");
   return;
  }
 
- if(!confirm(
-  "Delete "+book.title+"?"
- ))return;
+ if(!confirm("Delete "+book.title+"?"))return;
 
- books=books.filter(
-  b=>b.id!==id
- );
+ books=books.filter(b=>b.id!==id);
 
  saveData();
-
  displayBooks();
-
  updateStats();
-
  displaySubjectStatistics();
-
  updateAdminDashboard();
 
- showMessage(
-  "Book deleted."
- );
+ showMessage("Book deleted.");
 }
 
 /* =========================================================
- BORROW BOOK
+ BORROW
 ========================================================= */
 
 function borrowBook(id){
 
- const book=books.find(
-  b=>b.id===id
- );
+ const book=books.find(b=>b.id===id);
 
  if(!book||book.available<=0){
-
-  showMessage(
-   "Book is unavailable."
-  );
-
+  showMessage("Book is unavailable.");
   return;
  }
 
  selectedBookId=id;
 
- document.getElementById(
-  "borrowBookTitle"
- ).value=book.title;
+ document.getElementById("borrowBookTitle").value=book.title;
+ document.getElementById("borrowBookAuthor").value=book.author;
+ document.getElementById("borrowBookCategory").value=book.category;
+ document.getElementById("borrowBookNumber").value=book.barcode||"";
 
- document.getElementById(
-  "borrowBookAuthor"
- ).value=book.author;
-
- document.getElementById(
-  "borrowBookCategory"
- ).value=book.category;
-
- document.getElementById(
-  "borrowBookNumber"
- ).value=book.barcode||"";
-
- document.getElementById(
-  "borrowBarcodeStatus"
- ).textContent=
- "✓ Book selected. You may scan another barcode if required.";
-
- document.getElementById(
-  "borrowBarcodeStatus"
- ).className=
- "scan-status scan-success";
-
- document.getElementById(
-  "borrowStudentSearch"
- ).value="";
-
- document.getElementById(
-  "studentForm"
- ).value="";
+ document.getElementById("borrowStudentSearch").value="";
+ document.getElementById("studentForm").value="";
 
  updateStudentSuggestions();
 
  const today=new Date();
-
  const due=new Date();
+ due.setDate(due.getDate()+14);
 
- due.setDate(
-  due.getDate()+14
- );
+ document.getElementById("borrowDate").value=dateString(today);
+ document.getElementById("dueDate").value=dateString(due);
 
- document.getElementById(
-  "borrowDate"
- ).value=
- dateString(today);
-
- document.getElementById(
-  "dueDate"
- ).value=
- dateString(due);
-
- showPage(
-  "borrowFormPage"
- );
+ showPage("borrowFormPage");
 }
-
-/* =========================================================
- BORROW BARCODE SCANNER
-========================================================= */
-
-let borrowBarcodeTimer=null;
-
-function handleBorrowBarcodeInput(){
-
- const barcode=document
- .getElementById("borrowBookNumber")
- .value
- .trim();
-
- clearTimeout(
-  borrowBarcodeTimer
- );
-
- if(!barcode){
-
-  document.getElementById(
-   "borrowBarcodeStatus"
-  ).textContent="";
-
-  return;
- }
-
- borrowBarcodeTimer=setTimeout(
-  ()=>processBorrowBarcode(barcode),
-  200
- );
-}
-
-function borrowBarcodeEnter(e){
-
- if(e.key==="Enter"){
-
-  e.preventDefault();
-
-  const barcode=document
-  .getElementById(
-   "borrowBookNumber"
-  )
-  .value
-  .trim();
-
-  if(barcode){
-   processBorrowBarcode(barcode);
-  }
- }
-}
-
-function processBorrowBarcode(barcode){
-
- const status=document
- .getElementById(
-  "borrowBarcodeStatus"
- );
-
- const book=findBookByBarcode(
-  barcode
- );
-
- if(!book){
-
-  selectedBookId=null;
-
-  document.getElementById(
-   "borrowBookTitle"
-  ).value="";
-
-  document.getElementById(
-   "borrowBookAuthor"
-  ).value="";
-
-  document.getElementById(
-   "borrowBookCategory"
-  ).value="";
-
-  status.className=
-  "scan-status scan-error";
-
-  status.textContent=
-  "❌ Barcode not found in the library.";
-
-  return;
- }
-
- selectedBookId=book.id;
-
- document.getElementById(
-  "borrowBookTitle"
- ).value=book.title;
-
- document.getElementById(
-  "borrowBookAuthor"
- ).value=book.author;
-
- document.getElementById(
-  "borrowBookCategory"
- ).value=book.category;
-
- document.getElementById(
-  "borrowBookNumber"
- ).value=book.barcode||barcode;
-
- if(book.available<=0){
-
-  status.className=
-  "scan-status scan-error";
-
-  status.textContent=
-  "⚠️ Book found, but no copy is currently available.";
-
- }else{
-
-  status.className=
-  "scan-status scan-success";
-
-  status.textContent=
-  "✓ Book found: "+
-  book.title+
-  " — "+
-  book.author;
- }
-}
-
-/* =========================================================
- STUDENT SUGGESTIONS
-========================================================= */
 
 function updateStudentSuggestions(){
 
- const list=document
- .getElementById(
-  "studentNameSuggestions"
- );
-
+ const list=document.getElementById("studentNameSuggestions");
  if(!list)return;
 
  list.innerHTML="";
 
  students.forEach(s=>{
-
-  const option=
-  document.createElement("option");
-
+  const option=document.createElement("option");
   option.value=s.name;
-
   list.appendChild(option);
  });
 }
 
 function findBorrowStudent(){
 
- const name=document
- .getElementById(
-  "borrowStudentSearch"
- )
- .value
- .trim();
+ const name=document.getElementById("borrowStudentSearch").value.trim();
 
  const student=students.find(s=>
-  s.name.toLowerCase()===
-  name.toLowerCase()
+  s.name.toLowerCase()===name.toLowerCase()
  );
 
- const info=document
- .getElementById(
-  "borrowStudentInfo"
- );
+ const info=document.getElementById("borrowStudentInfo");
 
  if(student){
 
-  document.getElementById(
-   "studentForm"
-  ).value=student.form;
+  document.getElementById("studentForm").value=student.form;
 
   info.innerHTML=
   `<p style="color:#27ae60;font-weight:bold">
-  ✓ Registered:
-  ${escapeHTML(student.name)}
-  —
-  ${escapeHTML(student.form)}
-  —
-  ID:
-  ${escapeHTML(student.libraryId)}
+  ✓ Registered: ${escapeHTML(student.name)}
+  — ${escapeHTML(student.form)}
+  — ID: ${escapeHTML(student.libraryId)}
   </p>`;
 
  }else{
 
-  document.getElementById(
-   "studentForm"
-  ).value="";
+  document.getElementById("studentForm").value="";
 
   info.innerHTML=
   `<p style="color:#e74c3c;font-weight:bold">
@@ -3315,181 +1316,92 @@ function findBorrowStudent(){
  }
 }
 
-/* =========================================================
- CONFIRM BORROW
-========================================================= */
-
 function confirmBorrow(){
 
- const name=document
- .getElementById(
-  "borrowStudentSearch"
- )
- .value
- .trim();
+ const name=document.getElementById("borrowStudentSearch").value.trim();
 
  const student=students.find(s=>
-  s.name.toLowerCase()===
-  name.toLowerCase()
+  s.name.toLowerCase()===name.toLowerCase()
  );
 
  if(!student){
-
-  showMessage(
-   "Only registered students can borrow books."
-  );
-
+  showMessage("Only registered students can borrow books.");
   return;
  }
 
- const book=books.find(
-  b=>b.id===selectedBookId
- );
+ const book=books.find(b=>b.id===selectedBookId);
 
  if(!book||book.available<=0){
-
-  showMessage(
-   "Book is no longer available."
-  );
-
+  showMessage("Book is no longer available.");
   return;
  }
 
- const bookNumber=document
- .getElementById(
-  "borrowBookNumber"
- )
- .value
- .trim();
+ const bookNumber=document.getElementById("borrowBookNumber").value.trim();
 
  if(!bookNumber){
-
-  showMessage(
-   "Scan or enter the book number."
-  );
-
+  showMessage("Scan or enter the book number.");
   return;
  }
 
- const borrowDate=document
- .getElementById(
-  "borrowDate"
- )
- .value;
-
- const dueDate=document
- .getElementById(
-  "dueDate"
- )
- .value;
+ const borrowDate=document.getElementById("borrowDate").value;
+ const dueDate=document.getElementById("dueDate").value;
 
  if(!borrowDate||!dueDate){
-
-  showMessage(
-   "Enter borrow and due dates."
-  );
-
+  showMessage("Enter borrow and due dates.");
   return;
  }
 
- if(
-  new Date(dueDate)<
-  new Date(borrowDate)
- ){
-
-  showMessage(
-   "Due date cannot be before borrow date."
-  );
-
+ if(new Date(dueDate)<new Date(borrowDate)){
+  showMessage("Due date cannot be before borrow date.");
   return;
  }
 
- /*
-  Prevent the same physical barcode
-  from being borrowed twice.
- */
- if(
-  borrowed.some(b=>
-   normalizeBarcode(b.bookNumber)===
-   normalizeBarcode(bookNumber)
-  )
- ){
-
-  showMessage(
-   "That physical book number is already borrowed."
-  );
-
+ if(borrowed.some(b=>
+  String(b.bookNumber).toLowerCase()===bookNumber.toLowerCase()
+  )){
+  showMessage("That physical book number is already borrowed.");
   return;
  }
 
  book.available--;
 
  borrowed.push({
-
   id:Date.now(),
-
   bookId:book.id,
-
   studentId:student.id,
-
   studentName:student.name,
-
   studentForm:student.form,
-
   libraryId:student.libraryId,
-
   bookTitle:book.title,
-
   author:book.author,
-
   bookNumber,
-
   bookType:book.category,
-
   borrowDate,
-
   dueDate
-
  });
 
+ /* remove matching pending request */
  requests=requests.filter(r=>
-  !(
-   r.studentId===student.id&&
-   r.bookId===book.id&&
-   r.status==="Pending"
-  )
+  !(r.studentId===student.id&&r.bookId===book.id&&r.status==="Pending")
  );
 
  addMessage(
   "borrow",
   "Book Borrowed",
-  student.name+
-  " has borrowed '"+
-  book.title+
-  "' until "+
-  dueDate+
-  "."
+  student.name+" has borrowed '"+book.title+"' until "+dueDate+"."
  );
 
  saveData();
 
  updateStats();
-
  updateClassCounts();
-
  updateAdminDashboard();
-
  displaySubjectStatistics();
-
  displayRequests();
 
- showMessage(
-  "Book successfully borrowed."
- );
+ showMessage("Book successfully borrowed.");
 
- showPage(
-  "borrowed"
- );
+ showPage("borrowed");
 }
 
 /* =========================================================
@@ -3498,13 +1410,8 @@ function confirmBorrow(){
 
 function showBorrowedClasses(){
 
- document.getElementById(
-  "classDashboardView"
- ).style.display="block";
-
- document.getElementById(
-  "classStudentView"
- ).style.display="none";
+ document.getElementById("classDashboardView").style.display="block";
+ document.getElementById("classStudentView").style.display="none";
 
  updateClassCounts();
 }
@@ -3513,462 +1420,135 @@ function openBorrowedClass(form){
 
  selectedClass=form;
 
- document.getElementById(
-  "classDashboardView"
- ).style.display="none";
+ document.getElementById("classDashboardView").style.display="none";
+ document.getElementById("classStudentView").style.display="block";
 
- document.getElementById(
-  "classStudentView"
- ).style.display="block";
-
- document.getElementById(
-  "selectedClassTitle"
- ).textContent=
+ document.getElementById("selectedClassTitle").textContent=
  "📚 "+form+" Borrowed Books";
 
- document.getElementById(
-  "borrowedSearch"
- ).value="";
+ document.getElementById("borrowedSearch").value="";
 
  displayBorrowed();
 }
 
 function backToBorrowedClasses(){
-
  selectedClass=null;
-
  showBorrowedClasses();
 }
 
 function updateClassCounts(){
 
- [
-  "Form 1",
-  "Form 2",
-  "Form 3",
-  "Form 4"
- ].forEach(form=>{
+ ["Form 1","Form 2","Form 3","Form 4"].forEach(form=>{
 
   const count=new Set(
-   borrowed
-   .filter(b=>
-    b.studentForm===form
-   )
-   .map(b=>
-    b.studentId
-   )
+   borrowed.filter(b=>b.studentForm===form)
+   .map(b=>b.studentId)
   ).size;
 
-  const id=
-   form
-   .toLowerCase()
-   .replace(" ","")+
-   "Count";
+  const id=form.toLowerCase().replace(" ","")+"Count";
+  const el=document.getElementById(id);
 
-  const el=
-   document.getElementById(id);
-
-  if(el){
-
-   el.textContent=
-    count+
-    " "+
-    (
-     count===1?
-     "Student":
-     "Students"
-    );
-  }
+  if(el)el.textContent=count+" "+(count===1?"Student":"Students");
  });
 }
 
 function displayBorrowed(){
 
- const container=document
- .getElementById(
-  "borrowedList"
- );
+ const container=document.getElementById("borrowedList");
 
  if(!selectedClass){
-
   container.innerHTML="";
-
   return;
  }
 
- const search=document
- .getElementById(
-  "borrowedSearch"
- )
- .value
- .toLowerCase();
+ const search=document.getElementById("borrowedSearch").value.toLowerCase();
 
  const list=borrowed.filter(b=>
-  b.studentForm===selectedClass&&
+  b.studentForm===selectedClass &&
   (
-   b.studentName
-   .toLowerCase()
-   .includes(search)||
-   b.bookTitle
-   .toLowerCase()
-   .includes(search)||
-   b.bookNumber
-   .toLowerCase()
-   .includes(search)
+   b.studentName.toLowerCase().includes(search)||
+   b.bookTitle.toLowerCase().includes(search)||
+   b.bookNumber.toLowerCase().includes(search)
   )
  );
 
  if(!list.length){
-
-  container.innerHTML=
-  '<div class="stat">'+
-  '<h2>📚</h2>'+
-  '<p>No borrowed books found.</p>'+
-  '</div>';
-
+  container.innerHTML='<div class="stat"><h2>📚</h2><p>No borrowed books found.</p></div>';
   return;
  }
 
  let html=`
  <div class="table-container">
  <table>
-
  <tr>
- <th>Student</th>
- <th>ID</th>
- <th>Book</th>
- <th>Author</th>
- <th>Barcode</th>
- <th>Borrow Date</th>
- <th>Due Date</th>
- <th>Status</th>
- <th>Action</th>
- </tr>
- `;
+ <th>Student</th><th>ID</th><th>Book</th><th>Author</th>
+ <th>Barcode</th><th>Borrow Date</th><th>Due Date</th>
+ <th>Status</th><th>Action</th>
+ </tr>`;
 
  list.forEach(b=>{
 
-  const overdue=
-   isOverdue(b.dueDate);
-
-  const days=
-   getDaysOverdue(b.dueDate);
+  const overdue=isOverdue(b.dueDate);
+  const days=getDaysOverdue(b.dueDate);
 
   html+=`
-
-  <tr
-  class="${overdue?"overdue-row":""}">
-
+  <tr class="${overdue?"overdue-row":""}">
+  <td>${escapeHTML(b.studentName)}</td>
+  <td>${escapeHTML(b.libraryId)}</td>
+  <td>${escapeHTML(b.bookTitle)}</td>
+  <td>${escapeHTML(b.author||"")}</td>
+  <td>${escapeHTML(b.bookNumber)}</td>
+  <td>${b.borrowDate}</td>
+  <td>${b.dueDate}</td>
   <td>
-  ${escapeHTML(b.studentName)}
+   ${overdue?
+   `<span class="overdue-badge">⚠️ ${days} day${days===1?"":"s"} overdue</span>`:
+   `<span style="color:#27ae60;font-weight:bold">✓ On Time</span>`}
   </td>
-
   <td>
-  ${escapeHTML(b.libraryId)}
+   <button class="return-btn" onclick="requestReturn(${b.id})">
+   ↩️ Return
+   </button>
   </td>
-
-  <td>
-  ${escapeHTML(b.bookTitle)}
-  </td>
-
-  <td>
-  ${escapeHTML(b.author||"")}
-  </td>
-
-  <td>
-  ${escapeHTML(b.bookNumber)}
-  </td>
-
-  <td>
-  ${b.borrowDate}
-  </td>
-
-  <td>
-  ${b.dueDate}
-  </td>
-
-  <td>
-
-  ${
-   overdue?
-
-   `<span class="overdue-badge">
-   ⚠️ ${days}
-   day${days===1?"":"s"}
-   overdue
-   </span>`
-
-   :
-
-   `<span
-   style="color:#27ae60;font-weight:bold">
-   ✓ On Time
-   </span>`
-  }
-
-  </td>
-
-  <td>
-
-  <button
-  class="return-btn"
-  onclick="requestReturn(${b.id})">
-
-  ↩️ Return
-
-  </button>
-
-  </td>
-
-  </tr>
-  `;
+  </tr>`;
  });
 
- html+=`
- </table>
- </div>
- `;
+ html+="</table></div>";
 
  container.innerHTML=html;
 }
 
 /* =========================================================
- RETURN BOOK
+ RETURN
 ========================================================= */
 
 function requestReturn(id){
 
- const item=borrowed.find(
-  b=>b.id===id
- );
+ const item=borrowed.find(b=>b.id===id);
 
  if(!item)return;
 
  selectedReturnId=id;
 
- document.getElementById(
-  "returnBarcode"
- ).value=item.bookNumber;
+ document.getElementById("returnBookDetails").innerHTML=`
+ <p><strong>Student:</strong> ${escapeHTML(item.studentName)}</p>
+ <p><strong>Book:</strong> ${escapeHTML(item.bookTitle)}</p>
+ <p><strong>Book Number:</strong> ${escapeHTML(item.bookNumber)}</p>`;
 
- showReturnBookDetails(item);
-
- document.getElementById(
-  "returnBarcodeStatus"
- ).className=
- "scan-status scan-success";
-
- document.getElementById(
-  "returnBarcodeStatus"
- ).textContent=
- "✓ Borrowed book selected.";
-
- document.getElementById(
-  "returnPassword"
- ).value="";
-
- document.getElementById(
-  "returnPasswordError"
- ).textContent="";
-
- document.getElementById(
-  "returnPasswordModal"
- ).style.display="flex";
-}
-
-function showReturnBookDetails(item){
-
- document.getElementById(
-  "returnBookDetails"
- ).innerHTML=`
-
- <div class="scanned-details">
-
- <h3>📚 Book Found</h3>
-
- <p>
- <strong>Student:</strong>
- ${escapeHTML(item.studentName)}
- </p>
-
- <p>
- <strong>Form:</strong>
- ${escapeHTML(item.studentForm)}
- </p>
-
- <p>
- <strong>Library ID:</strong>
- ${escapeHTML(item.libraryId)}
- </p>
-
- <p>
- <strong>Book:</strong>
- ${escapeHTML(item.bookTitle)}
- </p>
-
- <p>
- <strong>Author:</strong>
- ${escapeHTML(item.author||"")}
- </p>
-
- <p>
- <strong>Book Number:</strong>
- ${escapeHTML(item.bookNumber)}
- </p>
-
- <p>
- <strong>Borrow Date:</strong>
- ${escapeHTML(item.borrowDate)}
- </p>
-
- <p>
- <strong>Due Date:</strong>
- ${escapeHTML(item.dueDate)}
- </p>
-
- </div>
- `;
-}
-
-/* =========================================================
- RETURN BARCODE SCANNER
-========================================================= */
-
-let returnBarcodeTimer=null;
-
-function handleReturnBarcodeInput(){
-
- const barcode=document
- .getElementById(
-  "returnBarcode"
- )
- .value
- .trim();
-
- clearTimeout(
-  returnBarcodeTimer
- );
-
- if(!barcode){
-
-  selectedReturnId=null;
-
-  document.getElementById(
-   "returnBookDetails"
-  ).innerHTML="";
-
-  document.getElementById(
-   "returnBarcodeStatus"
-  ).textContent="";
-
-  return;
- }
-
- returnBarcodeTimer=setTimeout(
-  ()=>processReturnBarcode(barcode),
-  200
- );
-}
-
-function returnBarcodeEnter(e){
-
- if(e.key==="Enter"){
-
-  e.preventDefault();
-
-  const barcode=document
-  .getElementById(
-   "returnBarcode"
-  )
-  .value
-  .trim();
-
-  if(barcode){
-   processReturnBarcode(barcode);
-  }
- }
-}
-
-function processReturnBarcode(barcode){
-
- const status=document
- .getElementById(
-  "returnBarcodeStatus"
- );
-
- /*
-  Search currently borrowed books.
- */
- const item=borrowed.find(b=>
-  normalizeBarcode(
-   b.bookNumber
-  )===
-  normalizeBarcode(barcode)
- );
-
- if(!item){
-
-  selectedReturnId=null;
-
-  document.getElementById(
-   "returnBookDetails"
-  ).innerHTML="";
-
-  status.className=
-  "scan-status scan-error";
-
-  status.textContent=
-  "❌ This barcode is not currently recorded as borrowed.";
-
-  return;
- }
-
- selectedReturnId=item.id;
-
- /*
-  Bring all details immediately.
- */
- showReturnBookDetails(item);
-
- status.className=
- "scan-status scan-success";
-
- status.textContent=
- "✓ Book found: "+
- item.bookTitle+
- " — "+
- item.author;
+ document.getElementById("returnPassword").value="";
+ document.getElementById("returnPasswordError").textContent="";
+ document.getElementById("returnPasswordModal").style.display="flex";
 }
 
 function closeReturnPassword(){
-
  selectedReturnId=null;
-
- document.getElementById(
-  "returnPasswordModal"
- ).style.display="none";
-
- document.getElementById(
-  "returnBarcode"
- ).value="";
-
- document.getElementById(
-  "returnBookDetails"
- ).innerHTML="";
+ document.getElementById("returnPasswordModal").style.display="none";
 }
 
 function confirmReturnPassword(){
 
- if(
-  document.getElementById(
-   "returnPassword"
-  ).value!==SYSTEM_PASSWORD
- ){
-
-  document.getElementById(
-   "returnPasswordError"
-  ).textContent=
-  "❌ Incorrect password.";
-
+ if(document.getElementById("returnPassword").value!==SYSTEM_PASSWORD){
+  document.getElementById("returnPasswordError").textContent="❌ Incorrect password.";
   return;
  }
 
@@ -3981,96 +1561,49 @@ function confirmReturnPassword(){
 
 function completeReturn(id){
 
- const index=borrowed.findIndex(
-  b=>b.id===id
- );
+ const index=borrowed.findIndex(b=>b.id===id);
 
- if(index<0){
-
-  showMessage(
-   "Borrowed book could not be found."
-  );
-
-  return;
- }
+ if(index<0)return;
 
  const item=borrowed[index];
 
- const book=books.find(
-  b=>b.id===item.bookId
- );
+ const book=books.find(b=>b.id===item.bookId);
 
- if(
-  book&&
-  book.available<book.quantity
- ){
-
+ if(book&&book.available<book.quantity){
   book.available++;
  }
 
- const returnDate=
-  dateString(new Date());
+ const returnDate=dateString(new Date());
 
- const late=
-  calculateLateDays(
-   item.dueDate,
-   returnDate
-  );
+ const late=calculateLateDays(item.dueDate,returnDate);
 
  returnedArchive.push({
-
   archiveId:Date.now(),
-
   ...item,
-
   returnDate
-
  });
 
- borrowed.splice(
-  index,
-  1
- );
+ borrowed.splice(index,1);
 
  addMessage(
   "return",
   "Book Returned",
-  item.studentName+
-  " has returned '"+
-  item.bookTitle+
-  "' on "+
-  returnDate+
-  (
-   late>0?
-   " ("+
-   late+
-   " day"+
-   (late===1?"":"s")+
-   " late).":
-   "."
-  )
+  item.studentName+" has returned '"+item.bookTitle+"' on "+returnDate+
+  (late>0?" ("+late+" day"+(late===1?"":"s")+" late).":".")
  );
 
  saveData();
 
  displayBorrowed();
-
  displayArchive();
-
  displayMessages();
 
  updateStats();
-
  updateClassCounts();
-
  updateAdminDashboard();
-
  displaySubjectStatistics();
 
- showMessage(
-  item.studentName+
-  " returned the book successfully."
- );
+ showMessage(item.studentName+" returned the book successfully.");
 }
 
 /* =========================================================
@@ -4079,147 +1612,55 @@ function completeReturn(id){
 
 function displayArchive(){
 
- const container=document
- .getElementById(
-  "archiveList"
- );
+ const container=document.getElementById("archiveList");
 
  if(!returnedArchive.length){
-
-  container.innerHTML=
-  '<div class="stat">'+
-  '<h2>📦</h2>'+
-  '<p>No returned books yet.</p>'+
-  '</div>';
-
+  container.innerHTML='<div class="stat"><h2>📦</h2><p>No returned books yet.</p></div>';
   return;
  }
 
  let html=`
- <div class="table-container">
-
- <table>
-
+ <div class="table-container"><table>
  <tr>
+ <th>Student</th><th>Form</th><th>Book</th><th>Number</th>
+ <th>Borrowed</th><th>Due</th><th>Returned</th><th>Status</th><th>Action</th>
+ </tr>`;
 
- <th>Student</th>
- <th>Form</th>
- <th>Book</th>
- <th>Number</th>
- <th>Borrowed</th>
- <th>Due</th>
- <th>Returned</th>
- <th>Status</th>
- <th>Action</th>
+ returnedArchive.slice().reverse().forEach(x=>{
 
- </tr>
- `;
-
- returnedArchive
- .slice()
- .reverse()
- .forEach(x=>{
-
-  const late=
-   calculateLateDays(
-    x.dueDate,
-    x.returnDate
-   );
+  const late=calculateLateDays(x.dueDate,x.returnDate);
 
   html+=`
-
   <tr>
-
-  <td>
-  ${escapeHTML(x.studentName)}
-  </td>
-
-  <td>
-  ${escapeHTML(x.studentForm)}
-  </td>
-
-  <td>
-  ${escapeHTML(x.bookTitle)}
-  </td>
-
-  <td>
-  ${escapeHTML(x.bookNumber)}
-  </td>
-
-  <td>
-  ${x.borrowDate}
-  </td>
-
-  <td>
-  ${x.dueDate}
-  </td>
-
-  <td>
-  ${x.returnDate}
-  </td>
-
-  <td>
-
-  ${
-   late>0?
-
-   `<span class="overdue-badge">
-   Returned ${late}
-   day${late===1?"":"s"} late
-   </span>`
-
-   :
-
-   `<span
-   style="color:#27ae60;font-weight:bold">
-   ✓ On Time
-   </span>`
-  }
-
-  </td>
-
-  <td>
-
-  <button
-  class="delete-btn small-btn"
-  onclick="deleteArchive(${x.archiveId})">
-
-  Delete
-
-  </button>
-
-  </td>
-
-  </tr>
-  `;
+  <td>${escapeHTML(x.studentName)}</td>
+  <td>${escapeHTML(x.studentForm)}</td>
+  <td>${escapeHTML(x.bookTitle)}</td>
+  <td>${escapeHTML(x.bookNumber)}</td>
+  <td>${x.borrowDate}</td>
+  <td>${x.dueDate}</td>
+  <td>${x.returnDate}</td>
+  <td>${late>0?
+  `<span class="overdue-badge">Returned ${late} day${late===1?"":"s"} late</span>`:
+  `<span style="color:#27ae60;font-weight:bold">✓ On Time</span>`}</td>
+  <td><button class="delete-btn small-btn" onclick="deleteArchive(${x.archiveId})">Delete</button></td>
+  </tr>`;
  });
 
- html+=`
- </table>
- </div>
- `;
+ html+="</table></div>";
 
  container.innerHTML=html;
 }
 
 function deleteArchive(id){
 
- if(!confirm(
-  "Delete this archive record?"
- ))return;
+ if(!confirm("Delete this archive record?"))return;
 
- returnedArchive=
- returnedArchive.filter(
-  x=>x.archiveId!==id
- );
+ returnedArchive=returnedArchive.filter(x=>x.archiveId!==id);
 
  saveData();
-
  displayArchive();
 
- showMessage(
-  "Archive record deleted."
- );
+ showMessage("Archive record deleted.");
 }
 
 /* =========================================================
@@ -4228,50 +1669,25 @@ function deleteArchive(id){
 
 function studentLogin(){
 
- const name=document
- .getElementById(
-  "studentLoginName"
- )
- .value
- .trim();
-
- const id=document
- .getElementById(
-  "studentLoginId"
- )
- .value
- .trim();
+ const name=document.getElementById("studentLoginName").value.trim();
+ const id=document.getElementById("studentLoginId").value.trim();
 
  const student=students.find(s=>
-  s.name.toLowerCase()===
-  name.toLowerCase()&&
-  s.libraryId.toLowerCase()===
-  id.toLowerCase()
+  s.name.toLowerCase()===name.toLowerCase()&&
+  s.libraryId.toLowerCase()===id.toLowerCase()
  );
 
  if(!student){
-
-  document.getElementById(
-   "studentLoginError"
-  ).textContent=
+  document.getElementById("studentLoginError").textContent=
   "❌ Student name or Library ID is incorrect.";
-
   return;
  }
 
  loggedInStudent=student;
 
- document.getElementById(
-  "studentLoginError"
- ).textContent="";
-
- document.getElementById(
-  "studentLoginView"
- ).style.display="none";
-
- document.getElementById(
-  "studentAccountView"
- ).style.display="block";
+ document.getElementById("studentLoginError").textContent="";
+ document.getElementById("studentLoginView").style.display="none";
+ document.getElementById("studentAccountView").style.display="block";
 
  displayStudentAccount();
 }
@@ -4280,21 +1696,11 @@ function studentLogout(){
 
  loggedInStudent=null;
 
- document.getElementById(
-  "studentLoginName"
- ).value="";
+ document.getElementById("studentLoginName").value="";
+ document.getElementById("studentLoginId").value="";
 
- document.getElementById(
-  "studentLoginId"
- ).value="";
-
- document.getElementById(
-  "studentAccountView"
- ).style.display="none";
-
- document.getElementById(
-  "studentLoginView"
- ).style.display="block";
+ document.getElementById("studentAccountView").style.display="none";
+ document.getElementById("studentLoginView").style.display="block";
 }
 
 /* =========================================================
@@ -4305,61 +1711,24 @@ function displayStudentAccount(){
 
  if(!loggedInStudent)return;
 
- const photo=
-  loggedInStudent.photo||"";
+ const photo=loggedInStudent.photo||"";
 
- document.getElementById(
-  "studentProfile"
- ).innerHTML=`
-
+ document.getElementById("studentProfile").innerHTML=`
  <div class="student-profile">
-
  ${
-  photo?
-
-  `<img
-  src="${photo}"
-  alt="Student">`
-
-  :
-
-  `<div
-  class="student-avatar">
-  👤
-  </div>`
+ photo?
+ `<img src="${photo}" alt="Student">`:
+ `<div class="student-avatar">👤</div>`
  }
-
  <div>
-
- <h2>
- ${escapeHTML(
-  loggedInStudent.name
- )}
- </h2>
-
- <p>
- <strong>Library ID:</strong>
- ${escapeHTML(
-  loggedInStudent.libraryId
- )}
- </p>
-
- <p>
- <strong>Form:</strong>
- ${escapeHTML(
-  loggedInStudent.form
- )}
- </p>
-
+ <h2>${escapeHTML(loggedInStudent.name)}</h2>
+ <p><strong>Library ID:</strong> ${escapeHTML(loggedInStudent.libraryId)}</p>
+ <p><strong>Form:</strong> ${escapeHTML(loggedInStudent.form)}</p>
  </div>
-
- </div>
- `;
+ </div>`;
 
  displayStudentBooks();
-
  displayMyRequests();
-
  displayStudentBorrowed();
 }
 
@@ -4369,87 +1738,41 @@ function displayStudentAccount(){
 
 function displayStudentBooks(){
 
- const container=document
- .getElementById(
-  "studentBookList"
- );
-
- const search=document
- .getElementById(
-  "studentBookSearch"
- )
- .value
- .toLowerCase();
+ const container=document.getElementById("studentBookList");
+ const search=document.getElementById("studentBookSearch").value.toLowerCase();
 
  container.innerHTML="";
 
  const list=books.filter(b=>
-  b.available>0&&
+  b.available>0 &&
   (
-   b.title
-   .toLowerCase()
-   .includes(search)||
-   b.author
-   .toLowerCase()
-   .includes(search)||
-   b.category
-   .toLowerCase()
-   .includes(search)
+   b.title.toLowerCase().includes(search)||
+   b.author.toLowerCase().includes(search)||
+   b.category.toLowerCase().includes(search)
   )
  );
 
  if(!list.length){
-
-  container.innerHTML=
-  "<p>No available books found.</p>";
-
+  container.innerHTML="<p>No available books found.</p>";
   return;
  }
 
  list.forEach(book=>{
 
-  const div=
-   document.createElement("div");
-
+  const div=document.createElement("div");
   div.className="book";
 
   div.innerHTML=`
-
-  <h3>
-  📕 ${escapeHTML(book.title)}
-  </h3>
-
-  <p>
-  <strong>Author:</strong>
-  ${escapeHTML(book.author)}
-  </p>
-
-  <p>
-  <strong>Subject:</strong>
-  ${escapeHTML(book.category)}
-  </p>
-
-  <p>
-  <strong>Available today:</strong>
-
-  <strong
-  style="color:#27ae60">
-  ${book.available}
-  </strong>
-
-  of ${book.quantity}
-
-  </p>
-
-  <button
-  class="request-btn"
+  <h3>📕 ${escapeHTML(book.title)}</h3>
+  <p><strong>Author:</strong> ${escapeHTML(book.author)}</p>
+  <p><strong>Subject:</strong> ${escapeHTML(book.category)}</p>
+  <p><strong>Available today:</strong>
+  <strong style="color:#27ae60">${book.available}</strong>
+  of ${book.quantity}</p>
+  <button class="request-btn"
   onclick="openRequestModal(${book.id})">
-
   📩 Request This Book
-
-  </button>
-
-  `;
+  </button>`;
 
   container.appendChild(div);
  });
@@ -4463,205 +1786,104 @@ function openRequestModal(bookId){
 
  if(!loggedInStudent)return;
 
- const book=books.find(
-  b=>b.id===bookId
- );
+ const book=books.find(b=>b.id===bookId);
 
  if(!book||book.available<=0){
-
-  showMessage(
-   "This book is currently unavailable."
-  );
-
+  showMessage("This book is currently unavailable.");
   return;
  }
 
  const already=requests.some(r=>
-  r.studentId===
-  loggedInStudent.id&&
-  r.bookId===
-  bookId&&
+  r.studentId===loggedInStudent.id&&
+  r.bookId===bookId&&
   r.status==="Pending"
  );
 
  if(already){
-
-  showMessage(
-   "You already requested this book."
-  );
-
+  showMessage("You already requested this book.");
   return;
  }
 
  selectedRequestBook=bookId;
 
- document.getElementById(
-  "requestBookDetails"
- ).innerHTML=`
-
- <p>
- <strong>Student:</strong>
- ${escapeHTML(
-  loggedInStudent.name
- )}
- </p>
-
- <p>
- <strong>Book:</strong>
- ${escapeHTML(book.title)}
- </p>
-
- <p>
- <strong>Author:</strong>
- ${escapeHTML(book.author)}
- </p>
-
- <p>
- <strong>Available now:</strong>
- ${book.available}
- </p>
+ document.getElementById("requestBookDetails").innerHTML=`
+ <p><strong>Student:</strong> ${escapeHTML(loggedInStudent.name)}</p>
+ <p><strong>Book:</strong> ${escapeHTML(book.title)}</p>
+ <p><strong>Author:</strong> ${escapeHTML(book.author)}</p>
+ <p><strong>Available now:</strong> ${book.available}</p>
  `;
 
- document.getElementById(
-  "requestModal"
- ).style.display="flex";
+ document.getElementById("requestModal").style.display="flex";
 }
 
 function closeRequestModal(){
-
  selectedRequestBook=null;
-
- document.getElementById(
-  "requestModal"
- ).style.display="none";
+ document.getElementById("requestModal").style.display="none";
 }
 
 function sendBorrowRequest(){
 
- if(
-  !loggedInStudent||
-  selectedRequestBook===null
- )return;
+ if(!loggedInStudent||selectedRequestBook===null)return;
 
- const book=books.find(
-  b=>b.id===selectedRequestBook
- );
+ const book=books.find(b=>b.id===selectedRequestBook);
 
  if(!book||book.available<=0){
-
   closeRequestModal();
-
-  showMessage(
-   "Book is no longer available."
-  );
-
+  showMessage("Book is no longer available.");
   return;
  }
 
  requests.push({
-
   id:Date.now(),
-
   studentId:loggedInStudent.id,
-
-  studentName:
-   loggedInStudent.name,
-
-  studentForm:
-   loggedInStudent.form,
-
-  libraryId:
-   loggedInStudent.libraryId,
-
+  studentName:loggedInStudent.name,
+  studentForm:loggedInStudent.form,
+  libraryId:loggedInStudent.libraryId,
   bookId:book.id,
-
   bookTitle:book.title,
-
   category:book.category,
-
-  requestDate:
-   dateString(new Date()),
-
+  requestDate:dateString(new Date()),
   status:"Pending"
-
  });
 
  addMessage(
   "request",
   "New Borrow Request",
-  loggedInStudent.name+
-  " requested '"+
-  book.title+
-  "'."
+  loggedInStudent.name+" requested '"+book.title+"'."
  );
 
  saveData();
-
  closeRequestModal();
 
  displayMyRequests();
 
- showMessage(
-  "Borrow request sent to the librarian."
- );
+ showMessage("Borrow request sent to the librarian.");
 }
 
 function displayMyRequests(){
 
- const container=document
- .getElementById(
-  "myRequests"
- );
+ const container=document.getElementById("myRequests");
 
  if(!loggedInStudent){
-
   container.innerHTML="";
-
   return;
  }
 
- const list=requests.filter(
-  r=>r.studentId===
-  loggedInStudent.id
- );
+ const list=requests.filter(r=>r.studentId===loggedInStudent.id);
 
  if(!list.length){
-
-  container.innerHTML=
-  "<p>You have no borrowing requests.</p>";
-
+  container.innerHTML="<p>You have no borrowing requests.</p>";
   return;
  }
 
- container.innerHTML=
- list
- .slice()
- .reverse()
- .map(r=>`
-
- <div
- class="message-card request-message">
-
- <strong>
- ${escapeHTML(r.bookTitle)}
- </strong>
-
- <p>
- Requested:
- ${r.requestDate}
- </p>
-
- <p>
- Status:
- <strong>
- ${escapeHTML(r.status)}
- </strong>
- </p>
-
+ container.innerHTML=list.slice().reverse().map(r=>`
+ <div class="message-card request-message">
+ <strong>${escapeHTML(r.bookTitle)}</strong>
+ <p>Requested: ${r.requestDate}</p>
+ <p>Status:
+ <strong>${escapeHTML(r.status)}</strong></p>
  </div>
-
- `)
- .join("");
+ `).join("");
 }
 
 /* =========================================================
@@ -4670,99 +1892,47 @@ function displayMyRequests(){
 
 function displayRequests(){
 
- const container=document
- .getElementById(
-  "requestList"
- );
+ const container=document.getElementById("requestList");
 
- const list=requests.filter(
-  r=>r.status==="Pending"
- );
+ const list=requests.filter(r=>r.status==="Pending");
 
  if(!list.length){
-
   container.innerHTML=
-  '<div class="stat">'+
-  '<h2>📩</h2>'+
-  '<p>No pending requests.</p>'+
-  '</div>';
-
+  '<div class="stat"><h2>📩</h2><p>No pending requests.</p></div>';
   return;
  }
 
- container.innerHTML=
- list
- .slice()
- .reverse()
- .map(r=>`
+ container.innerHTML=list.slice().reverse().map(r=>`
+ <div class="message-card request-message">
+ <h3>📩 ${escapeHTML(r.bookTitle)}</h3>
+ <p><strong>Student:</strong> ${escapeHTML(r.studentName)}</p>
+ <p><strong>Form:</strong> ${escapeHTML(r.studentForm)}</p>
+ <p><strong>Library ID:</strong> ${escapeHTML(r.libraryId)}</p>
+ <p><strong>Requested:</strong> ${r.requestDate}</p>
 
- <div
- class="message-card request-message">
-
- <h3>
- 📩 ${escapeHTML(r.bookTitle)}
- </h3>
-
- <p>
- <strong>Student:</strong>
- ${escapeHTML(r.studentName)}
- </p>
-
- <p>
- <strong>Form:</strong>
- ${escapeHTML(r.studentForm)}
- </p>
-
- <p>
- <strong>Library ID:</strong>
- ${escapeHTML(r.libraryId)}
- </p>
-
- <p>
- <strong>Requested:</strong>
- ${r.requestDate}
- </p>
-
- <button
- class="approve-btn small-btn"
+ <button class="approve-btn small-btn"
  onclick="approveRequest(${r.id})">
-
  ✅ Approve
-
  </button>
 
- <button
- class="reject-btn small-btn"
+ <button class="reject-btn small-btn"
  onclick="rejectRequest(${r.id})">
-
  ❌ Reject
-
  </button>
-
  </div>
-
- `)
- .join("");
+ `).join("");
 }
 
 function approveRequest(id){
 
- const request=requests.find(
-  r=>r.id===id
- );
+ const request=requests.find(r=>r.id===id);
 
  if(!request)return;
 
- const book=books.find(
-  b=>b.id===request.bookId
- );
+ const book=books.find(b=>b.id===request.bookId);
 
  if(!book||book.available<=0){
-
-  showMessage(
-   "Book is no longer available."
-  );
-
+  showMessage("Book is no longer available.");
   return;
  }
 
@@ -4770,76 +1940,38 @@ function approveRequest(id){
 
  saveData();
 
+ /* Open librarian borrowing form automatically */
  selectedBookId=book.id;
 
- document.getElementById(
-  "borrowBookTitle"
- ).value=book.title;
-
- document.getElementById(
-  "borrowBookAuthor"
- ).value=book.author;
-
- document.getElementById(
-  "borrowBookCategory"
- ).value=book.category;
-
- document.getElementById(
-  "borrowBookNumber"
- ).value=book.barcode||"";
-
- document.getElementById(
-  "borrowStudentSearch"
- ).value=
-  request.studentName;
+ document.getElementById("borrowBookTitle").value=book.title;
+ document.getElementById("borrowBookAuthor").value=book.author;
+ document.getElementById("borrowBookCategory").value=book.category;
+ document.getElementById("borrowBookNumber").value=book.barcode||"";
+ document.getElementById("borrowStudentSearch").value=request.studentName;
 
  findBorrowStudent();
 
  const today=new Date();
-
  const due=new Date();
+ due.setDate(due.getDate()+14);
 
- due.setDate(
-  due.getDate()+14
- );
-
- document.getElementById(
-  "borrowDate"
- ).value=
- dateString(today);
-
- document.getElementById(
-  "dueDate"
- ).value=
- dateString(due);
+ document.getElementById("borrowDate").value=dateString(today);
+ document.getElementById("dueDate").value=dateString(due);
 
  displayRequests();
-
- addMessage(
-  "request",
-  "Request Approved",
-  request.studentName+
-  " has been approved to borrow '"+
-  book.title+
-  "'. Librarian must complete the physical checkout."
- );
+ addMessage("request","Request Approved",
+ request.studentName+" has been approved to borrow '"+book.title+"'. Librarian must complete the physical checkout.");
 
  saveData();
 
- showPage(
-  "borrowFormPage"
- );
+ showPage("borrowFormPage");
 
- showMessage(
-  "Request approved. Complete the borrowing."
- );
+ showMessage("Request approved. Complete the borrowing.");
 }
 
 function rejectRequest(id){
 
- const request=requests.find(
-  r=>r.id===id
- );
+ const request=requests.find(r=>r.id===id);
 
  if(!request)return;
 
@@ -4848,47 +1980,28 @@ function rejectRequest(id){
  addMessage(
   "request",
   "Borrow Request Rejected",
-  request.studentName+
-  "'s request for '"+
-  request.bookTitle+
-  "' was rejected."
+  request.studentName+"'s request for '"+request.bookTitle+"' was rejected."
  );
 
  saveData();
 
  displayRequests();
 
- showMessage(
-  "Request rejected."
- );
+ showMessage("Request rejected.");
 }
 
 /* =========================================================
  MESSAGES
 ========================================================= */
 
-function addMessage(
- type,
- title,
- text
-){
+function addMessage(type,title,text){
 
  messages.push({
-
-  id:
-   Date.now()+
-   Math.random(),
-
+  id:Date.now()+Math.random(),
   type,
-
   title,
-
   text,
-
-  date:
-   new Date()
-   .toLocaleString(),
-
+  date:new Date().toLocaleString(),
   read:false
  });
 
@@ -4897,107 +2010,47 @@ function addMessage(
 
 function displayMessages(){
 
- const container=document
- .getElementById(
-  "messageList"
- );
+ const container=document.getElementById("messageList");
 
  if(!messages.length){
-
   container.innerHTML=
-  '<div class="stat">'+
-  '<h2>🔔</h2>'+
-  '<p>No messages.</p>'+
-  '</div>';
-
+  '<div class="stat"><h2>🔔</h2><p>No messages.</p></div>';
   updateMessageBadge();
-
   return;
  }
 
- container.innerHTML=
- messages
- .slice()
- .reverse()
- .map(m=>`
-
- <div
- class="
- message-card
- ${
-  m.type==="return"?
-  "return-message":
-  m.type==="overdue"?
-  "overdue-message":
-  "request-message"
- }
- ">
-
- <h3>
-
- ${
-  m.type==="return"?
-  "↩️":
-  m.type==="overdue"?
-  "⚠️":
-  "📩"
- }
-
- ${escapeHTML(m.title)}
-
- </h3>
-
- <p>
- ${escapeHTML(m.text)}
- </p>
-
- <small>
- ${escapeHTML(m.date)}
- </small>
-
+ container.innerHTML=messages.slice().reverse().map(m=>`
+ <div class="message-card ${m.type==="return"?"return-message":m.type==="overdue"?"overdue-message":"request-message"}">
+ <h3>${m.type==="return"?"↩️":m.type==="overdue"?"⚠️":"📩"} ${escapeHTML(m.title)}</h3>
+ <p>${escapeHTML(m.text)}</p>
+ <small>${escapeHTML(m.date)}</small>
  </div>
-
- `)
- .join("");
+ `).join("");
 
  updateMessageBadge();
 }
 
 function updateMessageBadge(){
 
- const badge=document
- .getElementById(
-  "messageBadge"
- );
+ const badge=document.getElementById("messageBadge");
 
  if(!badge)return;
 
- const unread=
-  messages.filter(
-   m=>!m.read
-  ).length;
+ const unread=messages.filter(m=>!m.read).length;
 
- badge.textContent=
-  unread?
-  `(${unread})`:
-  "";
+ badge.textContent=unread?`(${unread})`:"";
 }
 
 function clearMessages(){
 
- if(!confirm(
-  "Clear all librarian messages?"
- ))return;
+ if(!confirm("Clear all librarian messages?"))return;
 
  messages=[];
 
  saveData();
-
  displayMessages();
 
- showMessage(
-  "Messages cleared."
- );
+ showMessage("Messages cleared.");
 }
 
 /* =========================================================
@@ -5007,91 +2060,49 @@ function clearMessages(){
 function getDaysOverdue(date){
 
  const today=new Date();
-
- const due=new Date(
-  date+"T23:59:59"
- );
+ const due=new Date(date+"T23:59:59");
 
  const diff=today-due;
 
- return Math.max(
-  0,
-  Math.floor(
-   diff/
-   (1000*60*60*24)
-  )
- );
+ return Math.max(0,Math.floor(diff/(1000*60*60*24)));
 }
 
 function isOverdue(date){
-
  return getDaysOverdue(date)>0;
 }
 
-function calculateLateDays(
- due,
- returned
-){
+function calculateLateDays(due,returned){
 
- const a=new Date(
-  due+"T00:00:00"
- );
+ const a=new Date(due+"T00:00:00");
+ const b=new Date(returned+"T00:00:00");
 
- const b=new Date(
-  returned+"T00:00:00"
- );
-
- return Math.max(
-  0,
-  Math.floor(
-   (b-a)/
-   (1000*60*60*24)
-  )
- );
+ return Math.max(0,Math.floor((b-a)/(1000*60*60*24)));
 }
 
-/* =========================================================
- OVERDUE MESSAGES
-========================================================= */
+/* Generate overdue messages */
 
 function checkOverdueMessages(){
 
  borrowed.forEach(item=>{
 
-  if(!isOverdue(item.dueDate))
-   return;
+  if(!isOverdue(item.dueDate))return;
 
-  const days=
-   getDaysOverdue(
-    item.dueDate
-   );
+  const days=getDaysOverdue(item.dueDate);
 
-  const exists=
-   messages.some(m=>
-    m.type==="overdue"&&
-    m.text.includes(
-     item.bookNumber
-    )&&
-    m.text.includes(
-     String(days)
-    )
-   );
+  const exists=messages.some(m=>
+   m.type==="overdue" &&
+   m.text.includes(item.bookNumber) &&
+   m.text.includes(String(days))
+  );
 
   if(!exists){
 
    addMessage(
     "overdue",
     "Overdue Book",
-    item.studentName+
-    " has exceeded the return date for '"+
-    item.bookTitle+
-    "' (Book "+
-    item.bookNumber+
-    ") by "+
-    days+
-    " day"+
-    (days===1?"":"s")+
-    "."
+    item.studentName+" has exceeded the return date for '"+
+    item.bookTitle+"' (Book "+item.bookNumber+
+    ") by "+days+" day"+(days===1?"":"s")+"."
    );
   }
  });
@@ -5103,149 +2114,78 @@ function checkOverdueMessages(){
 
 function registerStudent(){
 
- const name=document
- .getElementById(
-  "newStudentName"
- )
- .value
- .trim();
-
- const libraryId=document
- .getElementById(
-  "newStudentLibraryId"
- )
- .value
- .trim();
-
- const form=document
- .getElementById(
-  "newStudentForm"
- )
- .value;
-
- const file=document
- .getElementById(
-  "newStudentPhoto"
- )
- .files[0];
+ const name=document.getElementById("newStudentName").value.trim();
+ const libraryId=document.getElementById("newStudentLibraryId").value.trim();
+ const form=document.getElementById("newStudentForm").value;
+ const file=document.getElementById("newStudentPhoto").files[0];
 
  if(!name||!libraryId||!form){
-
-  showMessage(
-   "Name, Library ID and Form are required."
-  );
-
+  showMessage("Name, Library ID and Form are required.");
   return;
  }
 
- if(
-  students.some(s=>
-   s.libraryId.toLowerCase()===
-   libraryId.toLowerCase()
-  )
- ){
-
-  showMessage(
-   "That Library ID already exists."
-  );
-
+ if(students.some(s=>
+  s.libraryId.toLowerCase()===libraryId.toLowerCase()
+  )){
+  showMessage("That Library ID already exists.");
   return;
  }
 
- if(
-  students.some(s=>
-   s.name.toLowerCase()===
-   name.toLowerCase()
-  )
- ){
-
-  showMessage(
-   "That student name is already registered."
-  );
-
+ if(students.some(s=>
+  s.name.toLowerCase()===name.toLowerCase()
+  )){
+  showMessage("That student name is already registered.");
   return;
  }
 
  const finish=photo=>{
 
   students.push({
-
    id:Date.now(),
-
    name,
-
    libraryId,
-
    form,
-
    photo:photo||""
   });
 
   saveData();
 
-  document.getElementById(
-   "newStudentName"
-  ).value="";
-
-  document.getElementById(
-   "newStudentLibraryId"
-  ).value="";
-
-  document.getElementById(
-   "newStudentForm"
-  ).value="";
-
-  document.getElementById(
-   "newStudentPhoto"
-  ).value="";
-
-  document.getElementById(
-   "studentPhotoPreview"
-  ).src="";
+  document.getElementById("newStudentName").value="";
+  document.getElementById("newStudentLibraryId").value="";
+  document.getElementById("newStudentForm").value="";
+  document.getElementById("newStudentPhoto").value="";
+  document.getElementById("studentPhotoPreview").src="";
 
   updateStudentSuggestions();
-
   updateAdminDashboard();
-
   displayAdminClasses();
 
-  showMessage(
-   "Student registered successfully."
-  );
+  showMessage("Student registered successfully.");
  };
 
  if(file){
 
-  const reader=
-   new FileReader();
+  const reader=new FileReader();
 
-  reader.onload=e=>
-   finish(e.target.result);
+  reader.onload=e=>finish(e.target.result);
 
   reader.readAsDataURL(file);
 
  }else{
-
   finish("");
  }
 }
 
 function previewPhoto(e){
 
- const file=
-  e.target.files[0];
+ const file=e.target.files[0];
 
  if(!file)return;
 
- const reader=
-  new FileReader();
+ const reader=new FileReader();
 
  reader.onload=x=>{
-
-  document.getElementById(
-   "studentPhotoPreview"
-  ).src=
-   x.target.result;
+  document.getElementById("studentPhotoPreview").src=x.target.result;
  };
 
  reader.readAsDataURL(file);
@@ -5257,150 +2197,74 @@ function previewPhoto(e){
 
 function displayAdminClasses(){
 
- const container=document
- .getElementById(
-  "adminClassDashboard"
- );
+ const container=document.getElementById("adminClassDashboard");
 
- const forms=[
-  "Form 1",
-  "Form 2",
-  "Form 3",
-  "Form 4"
- ];
+ const forms=["Form 1","Form 2","Form 3","Form 4"];
 
- container.innerHTML=
- forms.map(form=>{
+ container.innerHTML=forms.map(form=>{
 
-  const count=
-   students.filter(
-    s=>s.form===form
-   ).length;
+  const count=students.filter(s=>s.form===form).length;
 
   return`
-
-  <div
-  class="admin-class-card"
+  <div class="admin-class-card"
   onclick="openAdminClass('${form}')">
-
-  <div style="font-size:50px">
-  🎓
-  </div>
-
-  <h2>
-  ${form.toUpperCase()}
-  </h2>
-
-  <p>
-  ${count}
-  ${count===1?"Student":"Students"}
-  </p>
-
-  </div>
-
-  `;
+  <div style="font-size:50px">🎓</div>
+  <h2>${form.toUpperCase()}</h2>
+  <p>${count} ${count===1?"Student":"Students"}</p>
+  </div>`;
 
  }).join("");
 }
 
 function openAdminClass(form){
 
- document.getElementById(
-  "adminClassDashboard"
- ).style.display="none";
+ document.getElementById("adminClassDashboard").style.display="none";
+ document.getElementById("adminClassStudents").style.display="block";
 
- document.getElementById(
-  "adminClassStudents"
- ).style.display="block";
-
- document.getElementById(
-  "adminSelectedClass"
- ).textContent=
+ document.getElementById("adminSelectedClass").textContent=
  "🎓 "+form+" Students";
 
- const list=
-  students.filter(
-   s=>s.form===form
-  );
+ const list=students.filter(s=>s.form===form);
 
- const container=document
- .getElementById(
-  "adminStudentsInClass"
- );
+ const container=document.getElementById("adminStudentsInClass");
 
  if(!list.length){
-
   container.innerHTML=
-  '<div class="stat">'+
-  '<h2>👨‍🎓</h2>'+
-  '<p>No students registered in this class.</p>'+
-  '</div>';
-
+  '<div class="stat"><h2>👨‍🎓</h2><p>No students registered in this class.</p></div>';
   return;
  }
 
- container.innerHTML=
- list.map(s=>`
+ container.innerHTML=list.map(s=>`
 
- <div
- class="student-admin-card">
+ <div class="student-admin-card">
 
  ${
-  s.photo?
-
-  `<img
-  src="${s.photo}"
-  alt="Student">`
-
-  :
-
-  `<div
-  class="student-avatar">
-  👤
-  </div>`
+ s.photo?
+ `<img src="${s.photo}" alt="Student">`:
+ `<div class="student-avatar">👤</div>`
  }
 
  <div style="flex:1">
-
- <h3>
- ${escapeHTML(s.name)}
- </h3>
-
- <p>
- <strong>Library ID:</strong>
- ${escapeHTML(s.libraryId)}
- </p>
-
- <p>
- <strong>Form:</strong>
- ${escapeHTML(s.form)}
- </p>
-
+ <h3>${escapeHTML(s.name)}</h3>
+ <p><strong>Library ID:</strong> ${escapeHTML(s.libraryId)}</p>
+ <p><strong>Form:</strong> ${escapeHTML(s.form)}</p>
  </div>
 
- <button
- class="delete-btn small-btn"
+ <button class="delete-btn small-btn"
  onclick="deleteStudent(${s.id})">
-
  🗑️ Delete
-
  </button>
 
  </div>
 
- `)
- .join("");
+ `).join("");
 }
 
 function backToAdminClasses(){
 
- document.getElementById(
-  "adminClassStudents"
- ).style.display="none";
+ document.getElementById("adminClassStudents").style.display="none";
+ document.getElementById("adminClassDashboard").style.display="grid";
 
- document.getElementById(
-  "adminClassDashboard"
- ).style.display="grid";
 }
 
 /* =========================================================
@@ -5409,45 +2273,26 @@ function backToAdminClasses(){
 
 function deleteStudent(id){
 
- const student=students.find(
-  s=>s.id===id
- );
+ const student=students.find(s=>s.id===id);
 
  if(!student)return;
 
- if(
-  borrowed.some(
-   b=>b.studentId===id
-  )
- ){
-
-  showMessage(
-   "Student cannot be deleted while holding a book."
-  );
-
+ if(borrowed.some(b=>b.studentId===id)){
+  showMessage("Student cannot be deleted while holding a book.");
   return;
  }
 
- if(!confirm(
-  "Delete "+student.name+"?"
- ))return;
+ if(!confirm("Delete "+student.name+"?"))return;
 
- students=
-  students.filter(
-   s=>s.id!==id
-  );
+ students=students.filter(s=>s.id!==id);
 
  saveData();
 
  displayAdminClasses();
-
  updateAdminDashboard();
-
  updateStudentSuggestions();
 
- showMessage(
-  "Student deleted."
- );
+ showMessage("Student deleted.");
 }
 
 /* =========================================================
@@ -5456,84 +2301,33 @@ function deleteStudent(id){
 
 function showAdminSection(section){
 
- document.querySelectorAll(
-  ".admin-section"
- )
- .forEach(x=>
-  x.classList.remove("active")
- );
+ document.querySelectorAll(".admin-section")
+ .forEach(x=>x.classList.remove("active"));
 
- document.getElementById(
-  section
- ).classList.add("active");
+ document.getElementById(section).classList.add("active");
 
- if(section==="adminDashboard")
-  updateAdminDashboard();
-
+ if(section==="adminDashboard")updateAdminDashboard();
  if(section==="studentRecords"){
-
   displayAdminClasses();
-
-  document.getElementById(
-   "adminClassDashboard"
-  ).style.display="grid";
-
-  document.getElementById(
-   "adminClassStudents"
-  ).style.display="none";
+  document.getElementById("adminClassDashboard").style.display="grid";
+  document.getElementById("adminClassStudents").style.display="none";
  }
-
- if(section==="subjectStatistics")
-  displaySubjectStatistics();
+ if(section==="subjectStatistics")displaySubjectStatistics();
 }
 
 function updateAdminDashboard(){
 
- const total=
-  books.reduce(
-   (s,b)=>s+b.quantity,
-   0
-  );
+ const total=books.reduce((s,b)=>s+b.quantity,0);
+ const available=books.reduce((s,b)=>s+b.available,0);
 
- const available=
-  books.reduce(
-   (s,b)=>s+b.available,
-   0
-  );
+ document.getElementById("adminTotalTitles").textContent=books.length;
+ document.getElementById("adminTotalCopies").textContent=total;
+ document.getElementById("adminAvailableCopies").textContent=available;
+ document.getElementById("adminBorrowedCopies").textContent=total-available;
+ document.getElementById("adminStudents").textContent=students.length;
 
- document.getElementById(
-  "adminTotalTitles"
- ).textContent=
-  books.length;
-
- document.getElementById(
-  "adminTotalCopies"
- ).textContent=
-  total;
-
- document.getElementById(
-  "adminAvailableCopies"
- ).textContent=
-  available;
-
- document.getElementById(
-  "adminBorrowedCopies"
- ).textContent=
-  total-available;
-
- document.getElementById(
-  "adminStudents"
- ).textContent=
-  students.length;
-
- document.getElementById(
-  "adminBorrowingStudents"
- ).textContent=
-  new Set(
-   borrowed.map(
-    b=>b.studentId
-   )
-  ).size;
+ document.getElementById("adminBorrowingStudents").textContent=
+ new Set(borrowed.map(b=>b.studentId)).size;
 }
 
 /* =========================================================
@@ -5542,17 +2336,13 @@ function updateAdminDashboard(){
 
 function displaySubjectStatistics(){
 
- const container=document
- .getElementById(
-  "subjectStatisticsList"
- );
+ const container=document.getElementById("subjectStatisticsList");
 
  const categories={};
 
  books.forEach(b=>{
 
   if(!categories[b.category]){
-
    categories[b.category]={
     titles:0,
     total:0,
@@ -5562,63 +2352,27 @@ function displaySubjectStatistics(){
   }
 
   categories[b.category].titles++;
-
-  categories[b.category].total+=
-   b.quantity;
-
-  categories[b.category].available+=
-   b.available;
-
-  categories[b.category].borrowed+=
-   b.quantity-b.available;
+  categories[b.category].total+=b.quantity;
+  categories[b.category].available+=b.available;
+  categories[b.category].borrowed+=b.quantity-b.available;
  });
 
- container.innerHTML=
- Object.keys(categories)
- .sort()
- .map(category=>{
+ container.innerHTML=Object.keys(categories).sort().map(category=>{
 
-  const d=
-   categories[category];
+  const d=categories[category];
 
   return`
-
-  <div
-  class="subject-card">
-
-  <h3>
-  📚 ${escapeHTML(category)}
-  </h3>
-
-  <p>
-  <strong>Book Titles:</strong>
-  ${d.titles}
+  <div class="subject-card">
+  <h3>📚 ${escapeHTML(category)}</h3>
+  <p><strong>Book Titles:</strong> ${d.titles}</p>
+  <p><strong>Total Copies:</strong> ${d.total}</p>
+  <p style="color:#27ae60;font-weight:bold">
+  Available Today: ${d.available}
   </p>
-
-  <p>
-  <strong>Total Copies:</strong>
-  ${d.total}
+  <p style="color:#e67e22;font-weight:bold">
+  Currently Borrowed: ${d.borrowed}
   </p>
-
-  <p
-  style="color:#27ae60;font-weight:bold">
-
-  Available Today:
-  ${d.available}
-
-  </p>
-
-  <p
-  style="color:#e67e22;font-weight:bold">
-
-  Currently Borrowed:
-  ${d.borrowed}
-
-  </p>
-
-  </div>
-
-  `;
+  </div>`;
 
  }).join("")||
  "<p>No books registered.</p>";
@@ -5630,129 +2384,16 @@ function displaySubjectStatistics(){
 
 function updateStats(){
 
- const total=
-  books.reduce(
-   (s,b)=>s+b.quantity,
-   0
-  );
+ const total=books.reduce((s,b)=>s+b.quantity,0);
+ const available=books.reduce((s,b)=>s+b.available,0);
 
- const available=
-  books.reduce(
-   (s,b)=>s+b.available,
-   0
-  );
-
- document.getElementById(
-  "totalBooks"
- ).textContent=
-  books.length;
-
- document.getElementById(
-  "availableBooks"
- ).textContent=
-  available;
-
- document.getElementById(
-  "borrowedBooks"
- ).textContent=
-  total-available;
-
- document.getElementById(
-  "totalStudents"
- ).textContent=
-  new Set(
-   borrowed.map(
-    b=>b.studentId
-   )
-  ).size;
+ document.getElementById("totalBooks").textContent=books.length;
+ document.getElementById("availableBooks").textContent=available;
+ document.getElementById("borrowedBooks").textContent=total-available;
+ document.getElementById("totalStudents").textContent=
+ new Set(borrowed.map(b=>b.studentId)).size;
 
  updateClassCounts();
-}
-
-/* =========================================================
- STUDENT BORROWED BOOKS
-========================================================= */
-
-function displayStudentBorrowed(){
-
- const container=document
- .getElementById(
-  "studentBorrowedList"
- );
-
- if(!loggedInStudent){
-
-  container.innerHTML="";
-
-  return;
- }
-
- const list=borrowed.filter(
-  b=>b.studentId===
-  loggedInStudent.id
- );
-
- if(!list.length){
-
-  container.innerHTML=
-  '<div class="stat">'+
-  '<p>You currently have no borrowed books.</p>'+
-  '</div>';
-
-  return;
- }
-
- container.innerHTML=
- list.map(b=>`
-
- <div
- class="message-card">
-
- <h3>
- 📚 ${escapeHTML(b.bookTitle)}
- </h3>
-
- <p>
- <strong>Author:</strong>
- ${escapeHTML(b.author||"")}
- </p>
-
- <p>
- <strong>Book Number:</strong>
- ${escapeHTML(b.bookNumber)}
- </p>
-
- <p>
- <strong>Borrowed:</strong>
- ${escapeHTML(b.borrowDate)}
- </p>
-
- <p>
- <strong>Due:</strong>
- ${escapeHTML(b.dueDate)}
- </p>
-
- ${
-  isOverdue(b.dueDate)?
-
-  `<span class="overdue-badge">
-  ⚠️ Overdue by
-  ${getDaysOverdue(b.dueDate)}
-  day(s)
-  </span>`
-
-  :
-
-  `<span
-  style="color:#27ae60;font-weight:bold">
-  ✓ On Time
-  </span>`
- }
-
- </div>
-
- `)
- .join("");
 }
 
 /* =========================================================
@@ -5760,10 +2401,7 @@ function displayStudentBorrowed(){
 ========================================================= */
 
 function dateString(date){
-
- return date
- .toISOString()
- .split("T")[0];
+ return date.toISOString().split("T")[0];
 }
 
 function escapeHTML(value){
@@ -5778,13 +2416,9 @@ function escapeHTML(value){
 
 function showMessage(text){
 
- const el=document
- .getElementById(
-  "message"
- );
+ const el=document.getElementById("message");
 
  el.textContent=text;
-
  el.style.display="block";
 
  setTimeout(()=>{
@@ -5797,32 +2431,18 @@ function showMessage(text){
 ========================================================= */
 
 updateStudentSuggestions();
-
 updateStats();
-
 updateAdminDashboard();
-
 displayBooks();
-
 displayArchive();
-
 displaySubjectStatistics();
-
 displayAdminClasses();
-
 checkOverdueMessages();
-
 updateMessageBadge();
 
-/*
- * Check overdue messages every minute.
- */
-setInterval(
- checkOverdueMessages,
- 60000
-);
+/* Check overdue messages every minute */
+setInterval(checkOverdueMessages,60000);
 
 </script>
-
 </body>
 </html>
