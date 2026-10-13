@@ -1,0 +1,11 @@
+MZUGOSS LIBRARY SYSTEM — INSTALL NOTES
+
+1. The app is configured to use your Supabase project. Shared book/student records require internet access and a successful Administrator/Librarian sign-in.
+2. IMPORTANT: Run the updated MZUGOSS_Supabase_Database_Setup.sql in Supabase Dashboard > SQL Editor > New query, then Run. This adds the shared one-time migration marker used to stop stale local records from being re-imported after deletions.
+3. Host the CONTENTS of this folder on an HTTPS website (for example, GitHub Pages). Do not open index.html directly from file:// if you want installation or cross-device sync.
+4. On Android Chrome: open the hosted app URL, tap the browser menu (⋮), then Install app or Add to Home screen.
+5. On iPhone/iPad Safari: open the hosted app URL, tap Share, then Add to Home Screen.
+6. On desktop Chrome/Edge: open the hosted app URL and use the Install icon in the address bar or browser menu.
+7. All phones/computers must open the SAME hosted URL and sign in. Do not distribute different edited copies if you want shared data.
+
+The service worker caches the app shell for quicker loading. Borrowing, authentication, and shared records still require internet access.

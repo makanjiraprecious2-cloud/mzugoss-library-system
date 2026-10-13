@@ -1,0 +1,15 @@
+{
+  "id": "./index.html",
+  "name": "MZUGOSS Library System",
+  "short_name": "MZUGOSS Library",
+  "description": "Mzuzu Government Secondary School Library System",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7faf8",
+  "theme_color": "#176b45",
+  "icons": [
+    {"src":"./mzugoss-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
