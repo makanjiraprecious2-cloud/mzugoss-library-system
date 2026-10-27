@@ -1,0 +1,6 @@
+DATABASE STATUS AT PACKAGE TIME
+
+Configured Supabase project URL is present in index.html. A public publishable key is used; no service-role key was found.
+The HTML calls the books, students, profiles, borrow_requests, student_borrowings, and teacher_borrowings tables.
+Static checks do not prove the remote database exists or permits the operations. Network DNS access to the Supabase host was unavailable during this validation, so remote REST checks could not be completed.
+Important: current student login does not establish a Supabase Auth session, but the borrowing SQL requires authenticated sessions. Student request cloud sync therefore needs a student-auth integration/policy fix before real production use. Do not enable anonymous read access to private student data.

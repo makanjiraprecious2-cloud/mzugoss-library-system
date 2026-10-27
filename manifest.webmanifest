@@ -1,15 +1,17 @@
 {
-  "id": "./index.html",
-  "name": "MZUGOSS Library System",
+  "id": "./",
+  "name": "MZUGOSS Library System — Mzuzu Government Secondary School",
   "short_name": "MZUGOSS Library",
-  "description": "Mzuzu Government Secondary School Library System",
+  "description": "Official MZUGOSS Library System for school library books, borrowing requests, returns and student services.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#f7faf8",
-  "theme_color": "#176b45",
+  "background_color": "#f4f7fb",
+  "theme_color": "#166534",
+  "categories": ["education", "productivity"],
   "icons": [
-    {"src":"./mzugoss-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+    {"src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
   ]
 }
